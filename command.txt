@@ -1,5 +1,7 @@
 yum update -y
 yum install git
+git config --global user.name "Vamshi"
+git config --global user.email vamshi@gmail.comgit status
 yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine
 yum install -y yum-utils
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
@@ -8,3 +10,6 @@ systemctl start docker
 systemctl status docker
 systemctl stop docker
 systemctl status docker
+git branch
+git add .
+git commit -m "added docker stop and status"
