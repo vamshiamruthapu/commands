@@ -13,3 +13,5 @@ systemctl status docker
 git branch
 git add .
 git commit -m "added docker stop and status"
+git log
+git push origin main
