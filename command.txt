@@ -110,3 +110,58 @@ Global Options:
       --tlskey string      Path to TLS key file (default "/root/.docker/key.pem")
       --tlsverify          Use TLS and verify the remote
   -v, --version            Print version information and quit
+
+
+------------------docker volume creation process----------------------------------
+cat /etc/os-release
+   86  docker ps -a
+   87  docker rm -f $(docker ps -aq)
+   88  docekr images
+   89  docker images
+   90  docker rmi -f $(docker images -aq)
+   91  docker images
+   92  docker ps -a
+   93  vi abc.txt
+   94  cat abc.txt
+   95  mkdir abc
+   96  mv abc.txt abc
+   97  ls -l
+   98  docker run -it -v abc:/tmp/abc --name volumes-demo ubuntu:22.04 bash
+   99  docker rmi -f $(docker images -aq)
+  100  docker run -it -v ./abc:/tmp/abc --name volumes-demo ubuntu:22.04 bash
+  101  docker rm -f $(docker ps -aq)
+  102  docker run -it -v ./abc:/tmp/abc --name volumes-demo ubuntu:22.04 bash
+  103  cat abc/abc.txt
+  104  docker rm -f $(docker ps -aq)
+  105  mkdir def
+  106  docker run -it -v ./def:/tmp/abc --name volumes-demo ubuntu:22.04 bash
+  107  ls -l def/
+  108  docker rm -f $(docker ps -aq)
+  109  ls -l def/
+  110  cat def/def.txt
+  111  docker run -it -v ./def:/tmp/abc --name volumes-demo ubuntu:22.04 bash
+  112  cat def/def.txt
+  113  docker run -it -v ./def:/tmp/abc --name volumes-demo ubuntu:22.04 bash
+  114  docker run -it -v ./def:/tmp/abc --name volumes-demo1 ubuntu:22.04 bash
+  115  ls -l
+  116  ls -l def
+  117  ls -l def/xyz/
+  118  ls -l def/xyz/xyz.txt
+  119  cat def/xyz/xyz.txt
+  120  docker rmi -f $(docker images -aq)
+  121  docker rm -f $(docker ps -aq)
+  122  docker volume create --help
+  123  docker volume create test-volume
+  124  docker volume ls
+  125  docker run -it -v test-volume:/tmp/abc --name volumes-demo ubuntu:22.04 bash
+  126  docker volume --help
+  127  docker volume prune
+  128  docker volume ls
+  129  docker volume --help
+  130  docker volume inspect test-volume
+  131  ls -l /var/lib/docker/volumes/test-volume/_data
+  132  ls -l /var/lib/docker/volumes/test-volume/
+  133  ls -l /var/lib/docker/volumes/abc/
+  134  ls -l /var/lib/docker/volumes/abc/_data/
+  135  docker history
+  136  his
