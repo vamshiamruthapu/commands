@@ -188,3 +188,5 @@ cat /etc/os-release
   134  ls -l /var/lib/docker/volumes/abc/_data/
   135  docker history
   136  his
+------git key ---------------
+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
