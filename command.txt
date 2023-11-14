@@ -35,7 +35,7 @@ echo   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/doc
 apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo docker run hello-world
---------------------------------------------------------------------------
+
 ----------------------debian os installation ----------------------------------------------
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
 2  sudo apt-get update
