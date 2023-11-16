@@ -309,6 +309,14 @@ github_pat_11BDY6W6Y0n0TFtlunFXYO_TsJM3Tmp27mpFiOUIt3zk8dz91SOjZXATvE9SIU0Bny242
    68 
 
    69  java --version
+ 
+  wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb
+   13  ls -l /opt
+   14  ls -l /opt/
+   15  ls -l /root
+   16  dpkg -i jdk-21_linux-x64_bin.deb
+   17  java --version
+
 
 
 
