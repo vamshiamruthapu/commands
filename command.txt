@@ -190,3 +190,127 @@ cat /etc/os-release
   136  his
 ------git key ---------------
 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
+
+
+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
+
+ java --version
+    2  ls -l /opt/jdk-21.0.1/bin/
+    3  vi ~/.bashrc
+    4  java --version
+    5  exit
+    6  java --version
+    7  vi Main.java
+    8  java Main.java
+    9  javac Main.java
+   10  ls -l
+   11  java Main
+   12  cat Main.
+   13  cat Main.java
+   14  javac Main.java
+   15  scp Main.class vamshi@
+   16  scp Main.class vamshi@172.190.87.225:~
+   17  java --version
+   18  export PATH=/opt/jdk-17.0.9/bin/:$PATH
+   19  java --version
+   20  rm -rf Main.class
+   21  ls -l
+   22  rm -rf vamshi@
+   23  ls -l
+   24  java --version
+   25  javac Main.java
+   26  java Main
+   27  scp Main.class vamshi@172.190.87.225:~
+   28  ls -l /opt/
+   29  ls -l/opt/jdk-17.0.9/bin/
+   30  ls -l /opt/jdk-17.0.9/bin/
+   31  ls -l /usr/bin/
+   32  ls -l /usr/bin/ | grep ls
+   33  pwd
+   34  ls -l /usr/bin/ | grep pwd
+   35  ls -l /usr/bin/ | grep cd
+   36  which cd
+   37  which docker
+   38  ls -l /opt/
+   39  cat ~/.bashrc
+   40  which java
+   41  ls -l /opt/jdk-17.0.9/bin/java
+
+
+
+ apt-get update
+    2  apt-get install ca-certificates curl gnupg
+    3  sudo apt-get install ca-certificates curl gnupg
+    4  install -m 0755 -d /etc/apt/keyrings
+    5  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    6  chmod a+r /etc/apt/keyrings/docker.gpg
+    7  echo   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+    8  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" |   tee /etc/apt/sources.list.d/docker.list > /dev/null
+    9  apt-get update
+   10  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   11  sudo docker run hello-world
+   12  free
+   13  free -h
+   14  uname -a
+   15  wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb
+   16  ll
+   17  pwd
+   18  ls -l /root
+   19  cd /opt
+   20  cd ~
+   21  ls -l
+   22 w
+
+   23  java --version
+   24  wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.deb
+   25  dpkg -i jdk-17_linux-x64_bin.deb
+   26  java --version
+   27  ls -l /usr/lib/jvm/
+   28  java --version
+   29  javac --version
+   30  update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17-oracle-x64/bin/java
+   31  update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17-oracle-x64/bin/java 1
+   32  java --version
+   33  update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-17-oracle-x64/bin/javac 1
+   34  java --version
+   35  javac --version
+   36  update-alternatives --config java
+   37  java --version
+   38  update-alternatives --config javac
+   39  javac --version
+   40  java --version
+   41  history
+   42  update-alternatives --config java
+   43  update-alternatives --config javac
+   44  java --version
+   45  java --veriosn
+   46  java --version
+   47  vi /home/vamshi/.bashrc
+   48  useradd teja
+   49  su- teja
+   50  su - teja
+   51  adduser ravi
+   52  cat /etc/passwd
+   53  update-alternatives --config java
+   54  java --version
+   55  which java
+   56  ls -l /usr/bin/java
+   57  ls -l /etc/alternatives/java
+   58  ls -l /usr/lib/jvm/jdk-17-oracle-x64/bin/java
+   59  ln -s /usr/lib/jvm/jdk-21-oracle-x64/bin/java /etc/alternatives/java
+   60  rm -rf /etc/alternatives/java
+   61  ll  
+   62  java --version
+   63  which update-alternatives
+   64  cat /usr/bin/update-alternatives
+   65  ls -l /usr/bin/java
+   66  ls -l /etc/alternatives/java
+   67  ls -l /usr/lib/jvm/jdk-21-oracle-x64/bin/java
+   68 
+
+   69  java --version
+
+
+
+  
+
