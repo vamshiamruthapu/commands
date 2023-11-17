@@ -1,0 +1,3 @@
+FROM vamshiamruthapu/ubuntu-latest-java:17
+RUN java --version
+RUN ls -l
