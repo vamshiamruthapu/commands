@@ -317,6 +317,118 @@ github_pat_11BDY6W6Y0n0TFtlunFXYO_TsJM3Tmp27mpFiOUIt3zk8dz91SOjZXATvE9SIU0Bny242
    16  dpkg -i jdk-21_linux-x64_bin.deb
    17  java --version
 
+-----------------------maven--------------------------
+
+    tar -xvzf apache-maven-3.9.5-bin.zip
+   21  tar -xvf apache-maven-3.9.5-bin.zip
+   22  rm -f
+   23  -rw-r--r--  1 root root 156654496 Oct 10 22:23 jdk-17_linux-x64_bin.deb
+   24  -rw-r--r--  1 root root 167684844 Oct  9 17:06 jdk-21_linux-x64_bin.deb
+   25  drwx------  3 root root      4096 Nov 21 10:58 snap/
+   26  rm -f apache-maven-3.9.5-bin.zip
+   27  ll
+   28  wget https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bin.tar.gz
+   29  ll
+   30  tar -xvzf apache-maven-3.9.5-bin.tar.gz
+   31  ll
+   32  cd apache-maven-3.9.5/
+   33  ll
+   34  cd bin/
+   35  ll
+   36  cd ..
+   37  cd
+   38  mvn
+   39  ll
+   40  cd apache-maven-3.9.5/
+   41  mvn
+   42  cd
+   43  cd /etc/profile.d/
+   44  vi maven.sh
+   45  ll
+   46  chmod 777 maven.sh
+   47  ll
+   48  mvn
+   49  source maven.sh
+   50  mvn -version
+   51  ll
+   52  cd
+   53  ll
+   54  ls -l /root
+   55  vi maven.sh
+   56  cd /etc/profile.d/
+   57  vi maven.sh
+   58  ll
+   59  mvn
+   60  source maven.sh
+   61  mvn -version
+   62  cd
+   63  mvn
+   64  ll
+   65  cat maven.sh
+   66  cd /etc/profile.d/
+   67  ll
+   68  cat maven.sh
+   69  vi maven.sh
+   70  source maven.sh
+   71  mvn
+   72  mvn -version
+   73  cd
+   74  mvn
+   75  mvn -version
+   76  java
+   77  which java
+   78  ls -l /usr/bin/java
+   79  ls -l /etc/alternatives/java
+   80  ls -l /usr/lib/jvm/jdk-21-oracle-x64/bin/java
+   81  ln -s /root/apache-maven-3.9.5/bin/mvn /usr/bin/mvn
+   82  ls -l /usr/bin/mvn
+   83  echo $PATH
+   84  cat /etc/profile.d/maven.sh
+   85  exit
+   86  ls -l
+   87  chmod 77 -R apache-maven-3.9.5
+   88  ls -l
+   89  exit
+   90  reboot
+   91  cd /etc/profile.d
+   92  ls -l
+   93  mv maven.sh ~
+   94  ls -l
+   95  exit
+   96  echo $PATH
+   97  mvn --version
+   98  mv apache-maven-3.9.5 /opt/
+   99  ls -l
+  100  mvn -version
+  101  ln -sf /opt/apache-maven-3.9.5/bin/mvn /usr/bin/mvn
+  102  ls -l /usr/bin/mn
+  103  ls -l /usr/bin/mvn
+  104  mvn --version
+  105  exit
+  106  adduser teja
+  107  mvn --version
+  108  mv /home/teja/apache-maven-3.8.8 /opt/
+  109  ls -l /opt/
+  110  chmod 777 -R /opt/apache-maven-3.8.8/
+
+ mvn --version
+    2  wget https://dlcdn.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz
+    3  ls -l
+    4  tar -xvzf apache-maven-3.8.8-bin.tar.gz
+    5  export MVN_HOME=/home/teja/apache-maven-3.8.8
+    6  export PATH=${MVN_HOME}/bin:$PATH
+    7  echo $PATH
+    8  mvn -version
+    9  sudo su -
+   10  exit
+   11  mvn
+   12  mvn -version
+   13  export MVN_HOME=/opt/apache-maven-3.8.8
+   14  export PATH=${MVN_HOME}/bin:$PATH
+   15  mvn -version
+
+
+
 
 
 
