@@ -428,6 +428,117 @@ github_pat_11BDY6W6Y0n0TFtlunFXYO_TsJM3Tmp27mpFiOUIt3zk8dz91SOjZXATvE9SIU0Bny242
    15  mvn -version
 
 
+1  apt-get update
+    2  apt-get install ca-certificates curl gnupg
+    3  sudo apt-get install ca-certificates curl gnupg
+    4  install -m 0755 -d /etc/apt/keyrings
+    5  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    6  chmod a+r /etc/apt/keyrings/docker.gpg
+    7  echo   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+"$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" |   tee /etc/apt/sources.list.d/docker.list > /dev/null
+    8  apt-get update
+    9  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   10  sudo docker run hello-world
+   11  java --version
+   12  cd /opt/
+   13  wget https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bin.tar.gz
+   14  ll
+   15  tar -xvzf  apache-maven-3.9.5-bin.tar.gz
+   16  ll
+   17  mv  apache-maven-3.9.5 maven
+   18  ll
+   19  cd maven/
+   20  ll
+   21  mvn
+   22  cd
+   23  cd /etc/profile.d/
+   24  vi maven.sh
+   25  ll
+   26  chmod 777 maven.sh
+   27  ll
+   28  mvn
+   29  source maven.sh
+   30  mvn --version
+   31  mvn
+   32  which mvn
+   33  ln -s //opt/maven/bin/mvn
+   34  cd
+   35  ln -s //opt/maven/bin/mvn
+   36  which java
+   37  ls -l /usr/bin/java
+   38  ls -l /etc/alternatives/java
+   39  ls -s /opt/maven/bin/mvn /usr/bin/mvn
+   40  cd opt/
+   41  ll
+   42  mvn
+   43  mvn --version
+   44  cd opt/
+   45  mvn --version
+   46  adduser abc
+   47  cat /etc/profile
+   48  adduser teja
+   49  mvn --version
+   50  git
+   51  git clone https://github.com/spring-guides/gs-accessing-data-mysql.git
+   52  ll
+   53  cd gs-accessing-data-mysql/
+   54  ll
+   55  cd complete/
+   56  ll
+   57  cat pom.xml
+   58  mvn clean package
+   59  ls -la ~
+   60  rm -rf ~/.m2/
+   61  ls -la ~
+   62  mvn clean package
+   63  ls -la /~
+   64  ls -la ~
+   65  ls -la ~/.m2
+   66  ls -la ~/.m2/repository/
+   67  ls -la ~/.m2/repository/com/
+   68  ls -la ~/.m2/repository/org/
+   69  ls -la ~/.m2/repository/org/springframework/boot/
+   70  ls -la ~/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/
+   71  ls -la ~/.m2/repository/org/springframework/boot/spring-boot-starter-web/
+   72  ls -la ~/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.1.0/
+   73  cd ~/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.1.0/
+   74  ls -l
+   75  unzip spring-boot-starter-web-3.1.0.jar
+   76  apt install unzip
+   77  unzip spring-boot-starter-web-3.1.0.jar
+   78  ls -l
+   79  ls -l META-INF/
+   80  cd -
+   81  cd ~/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.1.0/
+   82  ls -l
+   83  unzip spring-boot-starter-data-jpa-3.1.0.jar
+   84  ls -l
+   85  ls -l META-INF/
+   86  cd -
+   87  ls -l ~/.m2/
+   88  ls -l ~/.m2/repository/org/springframework/
+   89  ls -l ~/.m2/repository/org/springframework/spring-web
+   90  ls -l ~/.m2/repository/org/springframework/spring-web/6.0.9
+   91  ls -l target/
+   92  java -jar target/accessing-data-mysql-complete-0.0.1-SNAPSHOT.jar
+   93  vi pom.xml
+   94  mvn clean package
+   95  java -jar target/accessing-data-mysql-complete-0.0.1-SNAPSHOT.jar
+   96  cat src/main/resources/application.properties
+   97  docker run -d -p 3306:3306 --name mysql-docker-container -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=db_example -e MYSQL_USER=springuser -e MYSQL_PASSWORD=ThePassword mysql/mysql-server:latest
+   98  java -jar target/accessing-data-mysql-complete-0.0.1-SNAPSHOT.jar
+   99  curl -v telnet://localhost:3306
+  100  java -jar target/accessing-data-mysql-complete-0.0.1-SNAPSHOT.jar
+  101  java -jar target/accessing-data-mysql-complete-0.0.1-SNAPSHOT.jar &
+  102  netstat -lntp
+  103  apt install net-tools
+  104  netstat -lntp
+  105  ps T
+  106  kill -9 18455
+  107  netstat -lntp
+  108  ll
+  109  ls -la target/
+  110  ll
 
 
 
