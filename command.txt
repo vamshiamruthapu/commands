@@ -317,6 +317,9 @@ github_pat_11BDY6W6Y0n0TFtlunFXYO_TsJM3Tmp27mpFiOUIt3zk8dz91SOjZXATvE9SIU0Bny242
    16  dpkg -i jdk-21_linux-x64_bin.deb
    17  java --version
 
+--------------------------------------maven------------------------------- --------
+wget https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bin.tar.gz
+
 -----------------------maven--------------------------
 
     tar -xvzf apache-maven-3.9.5-bin.zip
