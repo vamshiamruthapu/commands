@@ -1,55 +1,8 @@
 FROM vamshiamruthapu/ubuntu-latest-java:17
 RUN java --version
 RUN ls -l
-----------------------------------------------------------------------------
-                DEVOPS NOTES
---------------------demo session -----------------------------------
-Agenda
--------------
-Previous Student Experience
-HR note
 
-Training Details
 
-What is DevOps?
-Why so much demand?
-
-Who can learn?
-	Selenium
-	Java
-	L2 support
-	Weblogic/middleware
-	sharepoint
-	backup/netapp
-	NON-IT --> IT --> more openings, valid degree
-		focus, interest, concept
-		8 hours --> remaining time practice
-	Career Gap
-		free ---> spend full time
-		
-everyone should upgrade in their career
-
-is coding required?
-	Programming
-		Java --> fast response, payments, session management
-		.Net
-		NodeJS
-		
-	Scripting
-		application installations
-		deploy
-		monitoring
-		
-variables
-data types
-conditions
-functions
-loops
-
-How much experience is covered?
-Placement assistance
-Certifications
-	AWS solutions architect associate
 	CKA
 	Terraform
 	DevOps certification --> No certification
