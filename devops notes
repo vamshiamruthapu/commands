@@ -1,1 +1,1546 @@
+ DEVOPS NOTES
+--------------------demo session -----------------------------------
+Agenda
+-------------
+Previous Student Experience
+HR note
 
+Training Details
+
+What is DevOps?
+Why so much demand?
+
+Who can learn?
+	Selenium
+	Java
+	L2 support
+	Weblogic/middleware
+	sharepoint
+	backup/netapp
+	NON-IT --> IT --> more openings, valid degree
+		focus, interest, concept
+		8 hours --> remaining time practice
+	Career Gap
+		free ---> spend full time
+		
+everyone should upgrade in their career
+
+is coding required?
+	Programming
+		Java --> fast response, payments, session management
+		.Net
+		NodeJS
+		
+	Scripting
+		application installations
+		deploy
+		monitoring
+		
+variables
+data types
+conditions
+functions
+loops
+
+How much experience is covered?
+Placement assistance
+Certifications
+	AWS solutions architect associate
+	CKA
+	Terraform
+	DevOps certification --> No certification
+	AWS DevOps --> useless
+		Code commit
+		Code build
+		Code deploy
+	Azure DevOps --> Drag and drop
+		Azure Repos
+		Azure Pipelines
+		Azure tasks
+		
+Linux Servers --> EC2
+Azure --> VM
+
+QA
+
+DevOps = Dev+Ops
+Automatic deployments
+immidiate results
+CICD
+DevOps is a process and methodology
+
+
+faster releases, less defects --> 
+fast and accuracy
+
+SMS --> school management system
+---------------------------------
+follow best process, you will get best results
+process should be continously updated
+
+stakeholders
+-------------
+Students
+Parents
+Teachers
+
+Examination system --> Waterfall model
+------------------
+only one final exam
+if pass --> promoted
+if fail --> demoted
+
+Students/developers --> No
+Parents/customer --> they are not aware what teachers are teaching, how student is studying
+Teachers/Testing team --> No
+
+teachers --> they will start covering syllabus
+students --> prepare from one month
+
+less than 50%
+
+1 fullround test --> Ferrari --> ambassdor
+
+Unit tests and term exams/Agile
+------------------
+Unit test - I --> with in 1 month
+Unit test - II
+Quarterly
+Unit test - III
+Half yearly
+Final exam
+6 exams
+
+Students --> 1 week before starts preparation
+Parents --> happy he can see his kid is studying atleast in 1 month
+teachers --> now they are serious
+
+results --> analyze --> 60%
+II --> atleast 61% --> results --> analyze
+III --> 62%
+
+final exam --> 75%
+overall pass percentage --> 90%
+
+Slip/Daily Tests
+-----------------
+everyday exam --> 
+100 exams --> 
+99%
+
+more tests --> best results
+
+Redbus
+---------
+1000 --> 10,000
+10 
+a minor defect caused this
+4 times testing
+400 times testing -->
+
+User
+Products catalogue
+Order management
+Cart
+Payments
+Delivery
+
+User Module --> 1 month
+2 weeks/ 2 weeks testing and Deplpoyment
+--------------------
+Developers --> full stress --> 2 weeks
+
+Testing --> 2weeks
+-----------------
+100 defects --> 
+30 invalid defects --> 
+
+
+Customer 
+Deplpoyment/Ops team -->
+
+5 rounds of testing
+
+DevOps -->  
+-------------------
+Enter your email address
+
+deploy --> test
+
+test cases
+------------
+no special charecters
+no numbers
+50 charecters length
+
+2 defects
+
+2nd day
+------------
+2 defects
+1 invalid defect
+easy to fix
+
+4 weeks --> Software should be released asap with less defects
+-------------
+development, deployment, testing
+
+20 days of testing -->
+
+teacher --> teach
+manual --> question, conduct, results, analyze
+softwares --> pool of questions, online
+
+DevOps never talk about automation --> but it recommends to reduce manual errors and stress
+
+deployment, testing --> should be completely automation
+
+Dev
+------
+compile
+build
+unit test cases
+deployment
+functional testing --> include testing also
+
+Continous integration
+Continous deployment --> NON Prod
+Continous delivery --> Prod
+Continous testing
+
+DevOps
+----------------
+1. automatically deploy code in all environments
+2. monitoring
+
+Cloud --> By default
+----------------
+Space
+Power
+Network
+Resources
+
+DevOps is a process of developing, deploying and testing on the same day. For example if a developer develops 100 lines of code, we can deploy it and test in on the same day. We will get immidiate results, we can fix them. in this process developers, testing and operations guys are working together.
+
+as a devops I can concentrate on faster release with less defects.
+11sec --> 1 release --> DevOps
+
+DevOps with AWS
+---------------
+Linux Admin
+Project discussion
+	User
+	10 modules
+	VPN setup
+	DEV QA Prod
+	
+Manual installation --> complete manual process
+	FZ --> manual staring, auto start
+	Bike Mechanic --> Manual working, automatic ga
+shell script --> automation --> disadvantages
+Ansible --> automation --> disadvantages
+Terraform --> automation --> disadvantages
+Jenkins CICD VM --> automation --> disadvantages
+Docker and K8 --> automation
+ELK and prometheus
+AWS infra
+Python scripting
+
+Lifetime access to recordings
+lifetime access to slack and QA
+
+Practice
+----------
+Attend Live session --> 50%
+listen to recording --> write notes what you understood --> 60%
+hands-on practice --> refer notes and recording --> 70%
+hands-on practice --> open recording --> 80%
+
+Errors
+----------
+1. read error description -->  5min
+2. search google --> new things
+3. slack -->
+4. QA
+
+
+120hours --> 400 hours --> 3/4 years of minimum
+
+
+Placement assistance
+---------------------
+HR team --> Resume preparation, interview tips, mock interviews
+
+ideas
+-----
+everyday thursday evening --> interview QA discussion
+Friday --> 10 questions quiz
+github discussions --> Question and answer
+
+Resume preparation --> 
+
+Ramesh --> TCS
+Suresh --> CTS
+
+gramphone records --> mechanic
+tape records --> upgrade
+VCR --> upgrade
+DVD --> upgraded
+Mobiles --> stopped upgrading
+
+DevOps --> AiOps
+
+
+-------------------session 1----------------------------------------
+AWS Account
+------------
+https://portal.aws.amazon.com/billing/signup
+
+#### How to create AWS account
+https://www.youtube.com/watch?v=F4jF88UkxV4
+
+1. CC/DB --> give details like
+firstname
+lastname
+address
+email
+
+Computer --> computation with in local or wide network
+-----------
+Laptop
+Desktop
+Server
+Mobile
+TV --> smart tv
+	android
+	wifi/network
+	storage
+	RAM --> 2GB
+Refrigirator --> they can order food items on their own
+Washing machine
+AC
+
+OS
+CPU
+Ram
+Storage
+
+IP Address
+
+Mobile
+----------
+OS --> Android
+RAM --> 8GB
+Storage --> 128/512
+CPU --> Snapdragon
+
+WiFi/Mobile net --> Ip address
+
+facebook.com --> computer/server/laptop/mobile
+
+based on purpose
+mobile --> calling
+laptop/desktop --> surf internet, browsing, watching movies
+TV -> watching braodcast channels
+
+server --> install application and serve users/clients
+
+client server
+-------------
+server --> mobile
+client --> laptop
+
+mobile --> files/images
+
+IT --> communication between clients and servers
+
+
+Operating Systems --> Linux
+---------------------------
+Windows --> bridge b/w user and hardware --> UI
+windows --> user instrcutions --> commands --> 0/1 --> hardware
+OS will take care of how to convert instructions into 0/1
+
+Windows vs Linux
+----------------
+graphics --> load increase on RAM, CPU
+
+servers world --> linux
+
+Fast, less cost
+
+linux is free
+stability --> run 10 years also non stop
+performance --> very high
+security --> comes from unix principles
+
+How to connect linux server
+----------------------------
+box
+lock --> public
+key --> private
+
+Auth mechanism
+--------------------
+1. what you know --> username/password
+2. what you have --> tokens
+3. what you are --> fingerprints, palms, retina, etc.
+
+what you have
+
+ssh --> secured shell
+
+pub/private key --> generate this pair
+
+Linux server = node = box
+
+ssh-keygen -f <file-name>
+
+Git bash --> https://git-scm.com/downloads
+windows --> mini linux
+/c/Users/user
+/c/Users/sivakumar
+
+ssh-keygen -f daws-76s
+
+ssh-keygen -f ravi
+
+daws-76s.pub --> public key
+daws-76s --> private key
+
+ssh-rsa <code> <laptop-name>
+
+cheapest region --> us-east-1 --> somewhat slow than mumbai --> negligible
+
+every region --> min 2 AZ --> HA
+
+AWS --> everything is called as resource
+
+EC2 --> creation of servers
+
+0.0.0.0/0 --> representation of internet / public
+
+Linux is not operating system --> it is kernel
+
+OS vs Kernel
+--------------
+Kernel --> connecting to Hardware --> no utilities, no shell
+
+Linus Torvalds --> Linux
+
+Unix --> very costly, tightly coupled to hardware
+
+Laptop --> IBM Dos
+
+Linux Kernel --> based on unix principles but code is from the scratch --> C Language
+
+Open source
+
+Kernel + package + shell == OS
+Android is flavour of linux
+Kernel + package + shell + UI
+
+ubuntu
+-------
+Desktop --> Kernel + Shell + UI
+Server --> Kernel + Shell
+centos
+RHEL
+Fedore
+Suse
+Arch Linux
+99% same --> few commands only will differ
+
+RHEL --> Open source --> but not free
+Code open source -> take the code
+
+Support --> immidiate call
+community 
+RHEL = Centos = Fedora = almalinux = AWS Linux
+
+RHEL --> Code --> OS --> CentOS --> internet community
+
+IP=54.226.152.150
+username = ec2-user
+private-key
+
+ssh -i <path-to-private-key> username@IP
+
+ssh -i daws-76s.pem ec2-user@54.226.152.150
+
+GitBash/putty --> SSH client
+EC2 Server --> SSH server
+protocol = SSH
+port=22
+
+https://www.facebook.com:443
+
+PROTOCOL IP Address Port-no
+
+username and password
+
+absolute path / relative path
+
+/c/Users/user/daws-76s.pem --> absolute
+
+$ --> normal user
+# --> root
+pwd --> /home/ec2-user
+uname --> kernel name
+
+<command-name> <options> <inputs>
+options and inputs are ocassionally optional
+
+<command-name> --help = will get info
+
+1 server --> free 30/31 days
+2 servers --> 15 days
+3 servers --> 10 days
+
+AWS account
+public key and private key
+create ec2 server and connect to it
+client-server
+git bash
+
+ec2 t2-micro charges --> assignment --> INR
+t3.medium charges --> assignment
+
+#### DevOps overview sessions
+
+https://www.youtube.com/watch?v=iO8qpPeiph0&list=PLbeIORXauosjypPNHf4YGeEKN3KlSjzOj
+
+-----------------------------session 2--------------------------------------------
+Recap
+----------
+Client Server
+EC2 instance launch
+	key pair generate
+	ssh-keygen -f <file-name>
+	public key imported to AWS
+	security group created in AWS, allow-all
+command-name <options> <inputs>
+$ --> normal user
+# --> root user
+command-name --help or man command-name
+
+ls --> list subdirectories
+
+/home/ec2-user 
+
+cd --> change directory
+/ --> root directory
+
+ls
+ls -l -->lengthy format in alphabetic order
+drwxr-xr-x  15 root root 2900 Nov 28 01:53 dev
+d --> directory
+- --> file
+cd .. --> one step back
+ls -lr --> reverse alphabetic order
+ls -lt --> latest files are on the top
+ls -ltr --> old files are on the top
+ls -la --> list all files and folders including hidden
+
+CRUD
+--------------------
+create
+read
+update
+delete
+
+file create
+------------
+touch --> creates an empty file
+mkdir --> make directory
+
+update file with content
+-----------------------
+cat > <file-name> --> file will open
+enter the content
+enter and ctrl+d
+
+> --> replaces the content
+>> --> appends the content
+
+reading file
+-----------------------
+cat file-name
+
+remove file and folder
+----------------------
+rm <file-name> 
+rmdir <folder-name> --> removes empty directory
+rm -r devops --> recursive --> go inside every folder and delete everything
+
+
+copy
+----------------------
+cp <source> <destination>
+cp -r --> recursive
+
+cut
+----------------------
+mv --> move
+with in the same folder if you use mv command, it works as rename
+
+mv sivakumar sivakumar-1 --> this will rename the file from sivakumar sivakumar-1
+
+
+grep command
+----------------
+grep <word-to-find> <file-name>
+
+Linux is by default case sensitive
+Devops and DEVOPS are different
+
+| --> piping one command output will become input to another command
+
+wget vs curl
+---------------
+https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe
+
+wget --> download files
+curl --> downloads the text content directly on to terminal
+
+cut and awk
+--------------
+https://github.com/daws-76s/notes/blob/master/session-01.txt
+
+delimiter --> we get fragments
+:
+/
+---
+https:
+
+github.com
+daws-76s
+
+cut -d / -f 1
+
+awk
+------
+awk -F / '{print $1F}'
+awk -F / '{print $NF}' --> last fragment
+
+awk command is used to divide the data based on columns
+
+uname
+ls
+cat
+cp
+mv
+grep
+cut
+awk
+head and tail
+
+head <file-name> --> first 10lines
+tail <file-name< --> last 10 lines
+
+Editors
+-------------
+vim --> visually improved
+
+vim <file-name>
+
+colon/command mode
+------------------
+:/<word-to-search> --> search from top
+:?<word-to-search> --> search from bottom
+
+sudo cp /etc/ssh/sshd_config sshd_config
+sudo chown ec2-user:ec2-user sshd_config
+
+replace the content/word
+-----------------------
+:s/<word-to-find>/<word-to-replace> --> replace the word where your cursor is, this will replace only first occurence in that line
+
+:2s/<word-to-find>/<word-to-replace>
+:%s/<word-to-find>/<word-to-replace>/g --> all occurences
+
+SDLC
+------
+Requirements
+Design
+Develop
+Test
+Deploy
+Maintain
+
+4-7
+
+head 7 | tail 3
+
+ssh-keygen -f 
+
+:wq!
+
+dd
+
+--------------------------------session 3---------------------------------------------
+ls
+cat
+touch
+rm
+rmdir
+mkdir
+cut
+awk
+curl
+wget
+grep
+head
+tail
+vim editor
+cp
+mv
+
+permissions
+--------------
+- rw-	rw-    r--
+  user  group  others
+  u      g      o
+  
+R -> 4
+W -> 2
+X -> 1 -> to run commands and shell scripts
+
+sivakumar --> DevOps Team
+user=owner
+group=devops
+others=testing,development team
+
+in Linux when you create user, a group with same name will be created
+sivakumar --> user sivakumar and group with name sivakumar also created
+
+chmod u+x sample
+
+chmod ugo+r sample
+
+sample
+
+u --> RWX
+g --> R
+o -> 0
+740
+
+u --> RWX
+g --> RX
+o --> X
+
+751
+
+User management
+-------------------
+ramesh joined devops team
+
+1. create user
+useradd <user-name>
+passwd <user-name>
+
+/etc/passwd --> will have user entries
+when a user is created, automatically group is created with same username
+
+getent groups
+/etc/ssh/sshd_config --> enable password authentication
+sshd -t --> checks for syntax of the file
+systemctl restart sshd --> 
+
+2. group create
+
+groupadd <group-name>
+
+3. every user will have a primary group and secondary group
+
+ramesh should be added to devops group
+
+usermod -g devops ramesh
+
+chown --> even file owner can't run this commands
+only sudo user can change the ownership
+chown <user>:<group> file-name
+chown <user>:<group> -R folder
+
+4. we will create testing group, we will give ramesh secondary access to testing
+
+usermod -aG testing ramesh
+
+gpasswd -d ramesh testing --> deletes ramesh from testing group
+
+user is leaving organisation
+------------------------------
+userdel <user-name> --> removes user from linux
+
+first user should be removed from the group
+
+1. project release
+2. company release
+
+
+process management
+----------------------------
+if you follow process you will get best results
+
+everything in linux is a process...
+
+Team Leader
+Team Manager
+Account Manager
+Senior Engineer
+Junior Engineer
+Trainee
+
+Team Leader --> 1 ticket created about devops pipelines setup = 1
+
+Senior Engineer --> 1
+
+sub task -> 2 --> Junior Engineer
+sub task -> 3 --> Junior Engineer-2
+
+Junior Engineer - 2 
+---------------
+sub task --> 4 --> trainee
+create a CI pipeline --> task completed
+ticket 4 --> task completed
+
+task ID --> 4 , parent task --> 3
+task 3 --> task 1
+
+whatever we do in linux --> a process id will be created and reported back
+
+ps
+
+echo Hello --> print Hello task given to Linux
+
+I need to create a process ID
+2345 --> result is hand overed to bash terminal 3720
+
+foreground process --> block terminal
+background process --> runs in background &
+
+when process stucks we need to kill it
+
+kill PID --> process may or may not be terminated
+
+when process stuck even kill can't kill it
+
+kill -9 --> forcefully terminate
+
+nodejs project
+----------------
+
+ps -ef | grep nodejs
+
+
+package management
+-----------------------
+yum command is used to install packages --> RHEL = centos = fedora = AWS Linux 2
+amazon-linux-extras
+yum install package-name
+
+apt-get 
+raheem joined, how can you enable ssh accesss through private key
+------------------------------------------------------
+1. create raheem user
+2. give me your public key, keep your private key securely.
+
+700
+user --> RWX
+group 
+Others
+
+chown user:group <file-name>
+
+chmod o+r <file-name>
+
+https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.83/bin/apache-tomcat-9.0.83.zip
+https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.84/bin/apache-tomcat-9.0.83.zip
+
+--------------------------------------session4-------------------------------
+Service Management
+--------------------
+Delhi --> Hyd
+To address
+----------
+D.No: 123, 2nd floor
+Tirumala apartment
+hitech city
+Hyderabad
+600082
+
+Shipping is in Hyd
+------------------
+HYD central Shipping Hub
+Hitech City Regional HUb --> area
+
+Hitech City Regional HUb --> Apartment
+D.No: 
+
+0-65,535 ports
+
+https://facebook.com
+
+ssh -i <private-key> ec2-user@IP
+
+ssh port no - 22
+http: 80
+https: 443
+mysql: 3306
+SMTP: 25
+FTP:
+
+
+
+Algorithm
+-----------------
+1. key gen
+2. public key import
+3. firewall create
+4. instance create
+5. ssh connect --> private-key
+
+request reach IP address
+
+ssh --> 22
+system will check anything is running ssh process with port no 22
+now authentication will be checked
+
+
+https://facebook.com:443
+
+443
+
+facebook IP
+443 https process is running?
+login
+error
+
+service --> offering service
+
+nginx1 --> it should be running
+
+systemctl start nginx --> nginx will start run
+
+http --> 80
+
+systemctl status nginx
+systemctl stop ngix
+
+systemctl enable nginx --> if services are enabled, after restart automatically services will run
+systemctl disable ngix
+
+http://52.90.162.131:80
+
+
+Network management
+----------------------
+netstat --> network statistics
+
+netstat -lntp
+
+troubleshooting
+---------------------
+system resources
+	cpu memory --> 
+	HD full --> df -hT
+	RAm full --> free
+process is running or not --> ps -ef | grep nginx
+port opened or not --> netstat -lntp
+systemctl status <service> --> 
+firewall is opened or not 
+
+How to give access to Linux user
+---------------------------------
+Linux Admin --> full access to linux
+DevOps Admin --> limited sudo access
+	yum, systemctl
+
+ramesh --> admin, add him to wheel group or give admin group full access
+suresh --> devops
+
+/etc/sudoers --> edit
+visudo --> 
+
+%admin  ALL=(ALL)       /usr/bin/yum,/usr/bin/systemctl
+/etc/sudoers.d/
+
+3 tier architecture
+-------------------------------
+Desktop applications
+	Ms office
+	Player
+	Editors
+	
+Disadvantages
+-------------
+more CPU, RAM
+we have to installation
+we have to upgrade
+storage --> we lose data
+portability --> we can't work from anywhere
+
+Web applications
+-----------------
+Google sheets, docs
+Ms office
+
+
+Hotel Business
+---------------
+more people, more food, more money, more quality
+
+RAW Items --> Cook --> We are serving
+
+1. cook/cashier/manage customers --> roadside
+
+10 persons we are able to serve
+
+2. no proper cooking, we lose money --> hotel
+
+1 employee --> cook
+owner -> manage customers, token, money collection
+
+20 persons can be managed
+
+3. Restaurent
+
+Captain --> customers receive
+Waiter --> takes order
+Chef --> cook
+Raw Items
+
+1 server
+--------------------
+DB table format --> users cant understand
+Web application --> 
+	fiels --> enter username, enter password
+	
+	insert data into DB
+	
+Front End, Backend
+----------------
+HTML, JS, Angular JS, ReactJS
+Java/.NET/Python/NodeJS
+
+frontend+backend --> single application
+-------------------------------------
+queue management --> is tough
+security --> customers can easily copy your recipe
+
+if DB and application in single server
+-------------------------------------
+Load Balancer -
+
+---------------------------------------------session 5--------------------------------
+Putty
+-----------
+username
+private-key/password
+IP address
+daws-76s.pem --> general format
+daws-76s.ppk -->putty private key
+
+ssh -i private-key/password username@IP
+
+Super Putty --> from putty extension to putty
+-------------
+
+Ngnix
+------------
+/usr/share/nginx/html
+
+front-end servers = http servers = 80
+hosts html/js based applications
+
+back-end servers = http = 8080
+tomcat, jboss, etc
+java, .NET, Python
+
+login.html --> http://joindevops.online:8080/api/login
+
+Linux Filesystem structure
+----------------------------
+/ --> root folder for liux server
+
+boot --> when server is getting started, server refers this directory and config from grub.cfg
+dev --> devices --> external devices are mounted here
+etc --> extra configuration
+home --> users home directory are created here
+lib/lib64 --> system needs libraries
+/media --> cd/dvd drive
+/mnt --> extra disks mount here
+/opt --> optional , manual installation of services or applications will be downloaded here
+/proc --> running process will store here with their PID
+/proc/cpuinfo
+/proc/meminfo
+
+/root --> root user home folder
+/run --> when server starts, server uses this directory as storage
+/bin --> cat,vim, touch, cd
+/sbin --> system commands like root access commands
+/tmp --> temp files, not important
+/usr --> all users,
+/var --> variables --> log files,
+
+
+symlink vs hardlink
+---------------------
+C:\Users\user\AppData\Local\Discord\Update.exe --processStart Discord.exe
+
+shortcut --> original file location
+
+symlink = symbolic link
+
+telnet ip port
+telnet ip2 80
+
+------------------------------------------------------session 6 ----------------------------
+Public vs Private IP
+How internet is working?
+Monolithic vs Microservices
+Security Groups
+Project discussion
+
+192.168.1.3 --> IP
+
+ 192.168.29.160 --> My private IP
+ 192.168.29.1 --> 	Modem
+
+2power32 --> 
+
+NAT --> Network Address Translation
+
+My Home pulbic IP: 49.43.243.168
+
+with in the network private IP
+latency: time to respond --> slow
+security: 
+cost: data charges
+
+DNS --> Domain name system
+---------------------------
+amazon.us --> IP address
+not in our home network
+not in jio network
+exchange point --> TATA, Airtel,
+cables --> go to us
+
+
+Security Groups
+--------------------------
+
+
+Monolithic vs Microservices
+--------------------------
+2012 TCS
+
+enterprise archive file --> this in only file of entire project
+
+Servlets --> DB connect data
+JSPS --> UI --> HTML
+
+1 month time
+
+small change is also a big release
+-----------------------------
+change management team
+they will do document --> client --> approve
+
+DEV --> QA --> UAT --> PROD
+
+FrontEnd --> Backend
+HTML, JS, AngularJS
+Java
+
+2 files
+frontend
+backend
+
+maintainance easy
+
+
+Backend
+---------------------
+1 file --> user, cart, products, payment, order, dispatch
+
+50 members
+
+products related code need to be changed....
+
+2 weeks 
+------------
+a change in product display
+a change in payment display
+
+a single failure also --> total failure
+
+java/.net
+
+user --> 5 java
+cart --> 5 python
+product --> 5 NodeJS
+payment
+
+Microservices
+---------------
+maintainance is easy
+language can be anything
+individual deployments
+server resources can be less
+autoscaling is very easy
+
+
+
+1. products --> heavy load --> wipro
+
+2. user --> they want add to wishlist --> HCL
+
+3. payment --> less load --> TCS
+
+Security groups
+---------------
+frontend apps --> 80
+backend apps --> 80 --> imagine
+
+I selected frontend SG in USER SG
+
+telnet <destination-IP> port
+
+telnet 3.208.3.54 8080
+
+inbound --> incoming traffic
+outbound --> outbound --> traffic originates from our server
+
+-------------------------------------------------session 7-----------------------------------------
+Roboshop configure
+---------------------
+1. Web/frontend tier
+2. App/Api/Backend tier
+3. DB tier
+
+DB apps are called statefull
+App/Web apps are called stateless
+
+CRUD over database
+--------------------
+create user
+read user
+update profile
+delete profile
+
+nginx is used as reverse proxy here.
+
+RHEL = Fedora = CentOs = AWS Linux
+
+CentOs
+
+devops-practice based on centos-8
+
+centos/DevOps321
+
+Web
+-----------
+http = web server
+nginx = 80
+
+dnf vs yum
+-----------
+centos 7 = yum is default package
+centos 8/9 = dnf is default package manager
+
+yum > dnf in memory
+
+/etc/nginx
+
+
+forward proxy vs reverse proxy
+-------------------------------
+VPN --> virtual private network
+
+Servers are not aware of clients are behind VPN
+anonymous access --> hiding our identity
+
+forward proxies can't understand real clients
+
+security --> companies can impose restrictions not to use particular sites, file upload and to monitor use internet behaviour
+
+clients are aware of proxy, servers are not aware
+
+reverse proxy
+-------------------------------
+clients are not aware of server side
+apps use reverse proxy to secure their code
+load balancing
+
+http://54.197.5.96/api/catalogue/categories --> querying catalogue to know the product categories
+
+HTTP status
+--------------------
+2** --> success
+3** --> redirect/temp --> images, gifs are redirected
+
+failure responses
+-----------------
+400, 404, 403, 402
+
+4** --> client side error
+5** --> server side error --> purely project error
+
+MongoDB
+-----------------
+
+forward proxy vs reverse proxy
+
+caching
+--------------
+Airtel --> 1000 users
+
+1 user downloaded bahubali movie --> server from US
+cache server --> bahubali movie
+
+2nd user get from cache server --> more speed
+
+127.0.0.1 --> localhost
+
+dnf install nginx -y
+systemctl start nginx -->
+
+
+http://54.197.5.96/api/catalogue/categories
+
+304 --> not modified
+
+Assignment
+--------------
+HTTP codes
+Forward proxy vs Reverse proxy
+configure our project
+
+devops-practice
+centos/DevOps321
+
+--------------------------------------------session 8 -------------------------------
+DNS
+----------------------
+Domain name system
+
+facebook.com
+
+browser cache --> checks IP address exist or not
+browser --> OS, Hey OS do you know IP address for facebook.com
+OS cache --> checks IP address exist or not
+ISP resolver --> DNS resolution is a responsibility of ISP
+
+OS --> ISP resolver --> I need IP address for facebook.com
+
+ISP resolver cache --> checks IP address exist or not
+
+ISP resolver is configured with root servers
+
+few organisations voluntarily formed root servers...
+
+root servers  --> 13 root servers --> backed by many servers for load balacning purpose
+
+ISP resolver --> Root servers
+
+Root servers --> TLD(Top level domain)
+
+.com --> popular
+.in --> Indian gov will manage, .uk, .us, .au, .eu
+.org --> non profit organisations
+.net
+.gov
+.online
+.ai
+.shop
+
+.siva --> I will consult root servers that we started TLD and provide our info
+
+
+Root servers --> TLD info is provided to ISP resolver
+
+ISP resolver --> .com TLD
+
+.com TLD --> nameservers information
+
+ISP resolver --> .online TLD
+ISP resolver --> nameservers
+ISP resolver --> Hostinger
+
+
+Domain registars
+-----------------
+godaddy
+hostinger
+AWS
+
+hostinger --> daws76s.online
+
+.online --> TLD
+
+hostinger responsibility is to update, sivakumar reddy with details bought daws76s.online
+and the nameservers are 
+
+ns1.dns-parking.com
+ns2.dns-parking.com
+
+we are using AWS cloud, we need some records automatically created
+------------------------------------------------------------
+We need to nameservers transformation
+
+created hostedzone in AWS. we got NS
+
+We need to update NS in Hostinger
+
+Hostinger responsibility to update NS with .online TLD
+
+daws76s.online --> TLD
+
+Browser --> cache --> OS --> cache --> ISP --> cache --> Root servers --> TLD --> NS --> NS --> A records
+
+.siva --> root servers
+
+godaddy, hostinger
+
+shift + g --> go down
+gg --> go up
+q --> quit
+
+
+http://joindevops.online/api/catalogue/categories
+
+["Artificial Intelligence","Robot"]
+
+{
+    "_id": "656fe069af6cad5824e8533b",
+    "sku": "ROB-1",
+    "name": "Robbie",
+    "description": "Large mechanical workhorse, crude but effective. Comes in handy when you are lost in space",
+    "price": 1200,
+    "instock": 12,
+    "categories": [
+        "Robot"
+    ]
+}
+
+
+Login --> User DB
+
+User --> User DB
+
+cache --> data
+
+User --> cache --> User DB
+
+Register a domain
+create hostedzone in AWS
+change nameservers
+reconfigure roboshop web, catalogue, mongodb using domain
+
+what is cache? what is redis?
+
+---------------------------------------------session 9 -------------------------------------
+errors
+-------------
+web --> roboshop.conf catalogue IP
+catalogue --> is running or not
+			  data loaded to mongodb or not
+			  catalogue.service mongodb IP is good or not
+mongodb --> remote 0.0.0.0 allowed or not
+firewalls
+
+catalogue --> mongodb
+
+redis
+--------
+apps --> redis --> DB
+
+http://daws76s.online/api/user/login
+
+
+5min break
+
+How to install application in Linux
+-----------------------------------
+We should have server
+
+nodejs, .net, java, python, php, go, etc.
+
+install that programming langugage
+
+creating a directory
+
+creating a seperate user for that application
+
+downloading the application
+
+install dependencies
+nodejs --> npm
+java --> mvn
+python --> pip
+.net --> nuget
+
+we are giving how to run in /etc/systemd/system/application.service
+
+systemctl start application
+systemctl enable application
+
+nodejs --> npm
+maven --> automatically maven will install java
+npm install = mvn clean package = it will give a jar file
+
+java --> compile --> bytecode(.jar file)
+python=nodejs = no need of compile = no bytecode
+
+-----------------------------------------session 10 --------------------------------------------
+Deployment
+---------------
+developer will update the code
+he will push to some location as zip
+download new code
+stop the server --> stop catalogue
+remove old code
+unzip new code
+restart the server
+6hours --> testing
+
+
+RabbitMQ --> Messaging Queue Database
+
+synchronous --> asynchronous
+
+http/s --> synchronous
+
+server should be always up and running...
+400/500
+
+asynchronous
+--------------------
+client --> messaging broker --> server
+
+sivakumar --> ramesh
+
+there will be a queue for ramesh
+
+sivakumar --> ramesh queue
+
+ramesh whatsapp --> subscribed to ramesh queue
+
+if online --> message wil be delivered
+
+when ramesh gets online --> ramesh whatsapp --> ramesh queue
+
+payment --> rabbitmq --> dispatch
+
+dispatch is subscribed to rabbitmq
+
+payment --> they will send a message to MQ application
+
+dispatch --> listening to the queue
+
+money with draw --> queue --> email, sms, whatsapp, monitoring team
+
+withdrawal --> email, sms, whatsapp
+
+synchronous vs asynchronous
