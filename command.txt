@@ -418,16 +418,16 @@ wget https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bi
     2  wget https://dlcdn.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz
     3  ls -l
     4  tar -xvzf apache-maven-3.8.8-bin.tar.gz
-    5  export MVN_HOME=/home/teja/apache-maven-3.8.8
-    6  export PATH=${MVN_HOME}/bin:$PATH
+    5  export M2_HOME=/home/teja/apache-maven-3.8.8
+    6  export PATH=${M2_HOME}/bin:${PATH}
     7  echo $PATH
     8  mvn -version
     9  sudo su -
    10  exit
    11  mvn
    12  mvn -version
-   13  export MVN_HOME=/opt/apache-maven-3.8.8
-   14  export PATH=${MVN_HOME}/bin:$PATH
+   13  export M2_HOME=/opt/maven
+   14  export PATH=${M2_HOME}/bin:${PATH}
    15  mvn -version
 
 
