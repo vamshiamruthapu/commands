@@ -23,7 +23,7 @@ git hub [password :- Vamshi@101]
 docker hub [username :- vamshiamruthapu]
 docker hub [password :- Vamshi@12345]
 
------------ubuntu installation-----------------------------------
+----------------------------ubuntu installation-----------------------------------
 apt-get update
 apt-get install ca-certificates curl gnupg
 sudo apt-get install ca-certificates curl gnupg
@@ -35,6 +35,149 @@ echo   "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/doc
 apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo docker run hello-world
+
+
+         java --version
+              wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.deb
+              dpkg -i jdk-17_linux-x64_bin.deb
+                               (or)
+              wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb
+              dpkg -i jdk-21_linux-x64_bin.deb
+
+              update-alternatives --config java
+              update-alternatives --config javac
+
+       
+--------------------------------------maven------------------------------- --------
+cd /opt/
+wget https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bin.tar.gz
+        ll
+        tar -xvzf apache-maven-3.9.5-bin.tar.gz
+        ll
+        mv apache-maven-3.9.5 maven
+        ll
+        cd /etc/profile.d
+        vi maven.sh
+           export M2_HOME=/opt/maven
+           export PATH=${M2_HOME}/bin:${PATH}
+        ll
+        chmod 777 maven.sh
+        ll
+        source maven.sh
+        mvn --version
+        cd
+        mvn --version
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+
+
+    tar -xvzf apache-maven-3.9.5-bin.zip
+  -rw-r--r--  1 root root 156654496 Oct 10 22:23 jdk-17_linux-x64_bin.deb
+  -rw-r--r--  1 root root 167684844 Oct  9 17:06 jdk-21_linux-x64_bin.deb
+  drwx------  3 root root      4096 Nov 21 10:58 snap/
+  rm -f apache-maven-3.9.5-bin.zip
+  ll
+  wget https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bin.tar.gz
+  ll
+  tar -xvzf apache-maven-3.9.5-bin.tar.gz
+  ll
+  cd apache-maven-3.9.5/
+  ll
+  cd bin/
+  ll
+  cd ..
+  cd
+  mvn
+  ll
+  cd apache-maven-3.9.5/
+  mvn
+  cd
+  cd /etc/profile.d/
+  vi maven.sh
+  ll
+  chmod 777 maven.sh
+  ll
+  mvn
+  source maven.sh
+  mvn -version
+  ll
+  cd
+  ll
+  ls -l /root
+  vi maven.sh
+  cd /etc/profile.d/
+  vi maven.sh
+  ll
+  mvn
+  source maven.sh
+  mvn -version
+  cd
+  mvn
+  ll
+  cat maven.sh
+  cd /etc/profile.d/
+  ll
+  cat maven.sh
+  vi maven.sh
+  source maven.sh
+  mvn
+  mvn -version
+  cd
+  mvn
+  mvn -version
+  java
+  which java
+  ls -l /usr/bin/java
+  ls -l /etc/alternatives/java
+  ls -l /usr/lib/jvm/jdk-21-oracle-x64/bin/java
+  ln -s /root/apache-maven-3.9.5/bin/mvn /usr/bin/mvn
+  ls -l /usr/bin/mvn
+  echo $PATH
+  cat /etc/profile.d/maven.sh
+  exit
+  ls -l
+  chmod 77 -R apache-maven-3.9.5
+  ls -l
+  exit
+  reboot
+  cd /etc/profile.d
+  ls -l
+  mv maven.sh ~
+  ls -l
+  exit
+  echo $PATH
+  mvn --version
+  mv apache-maven-3.9.5 /opt/
+  ls -l
+  mvn -version
+  ln -sf /opt/apache-maven-3.9.5/bin/mvn /usr/bin/mvn
+  ls -l /usr/bin/mn
+  ls -l /usr/bin/mvn
+  mvn --version
+  exit
+  adduser teja
+  mvn --version
+  mv /home/teja/apache-maven-3.8.8 /opt/
+  ls -l /opt/
+  chmod 777 -R /opt/apache-maven-3.8.8/
+
+mvn --version
+   wget https://dlcdn.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz
+   ls -l
+   tar -xvzf apache-maven-3.8.8-bin.tar.gz
+   export M2_HOME=/home/teja/apache-maven-3.8.8
+   export PATH=${M2_HOME}/bin:${PATH}
+   echo $PATH
+   mvn -version
+   sudo su -
+   exit
+   mvn
+   mvn -version
+   export M2_HOME=/opt/maven
+   export PATH=${M2_HOME}/bin:${PATH}
+  
+
+
 
 ----------------------debian os installation ----------------------------------------------
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
