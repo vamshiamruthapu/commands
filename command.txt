@@ -67,7 +67,45 @@ wget https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bi
         mvn --version
         cd
         mvn --version
------------------------------------------------------------------------------------------------
+----------------------------jenkins setup------------------------------------------
+-------------jenkins setup in ubuntu--------------------
+
+ sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+    https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+    https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+    /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+sudo apt-get update
+sudo apt-get install fontconfig openjdk-17-jre
+sudo apt-get install jenkins
+systemctl start jenkins
+systemctl status jenkins
+sudo vi /etc/passwd
+sudo passwd jenkins
+sudo visudo
+sudo vi /etc/ssh/sshd_config
+sudo systemctl restart sshd
+sudo systemctl status sshd
+
+
+----------------jenkins setup in linux-------------
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+yum install fontconfig java-17-openjdk
+yum install jenkins
+systemctl start jenkins
+systemctl status jenkins
+sudo vi /etc/passwd
+sudo passwd jenkins
+sudo visudo
+sudo vi /etc/ssh/sshd_config
+sudo systemctl restart sshd
+sudo systemctl status sshd
+
+  
 -----------------------------------------------------------------------------------------------
 
 
