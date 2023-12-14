@@ -90,6 +90,22 @@ sudo systemctl restart sshd
 sudo systemctl status sshd
 
 
+------------------------------------------------------
+   ----- LOGIN TO SLAVE------
+sudo yum update
+sudo useradd jenkins
+sudo passwd jenkins
+sudo visudo
+sudo vi /etc/ssh/sshd_config
+systemctl restart sshd
+systemctl status sshd
+
+  ------GO BACK TO MASTER------
+sudo su - jenkins
+ssh-keygen
+ssh-copy-id jenkins@publicipv4address
+
+
 ----------------jenkins setup in linux-------------
 
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
