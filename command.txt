@@ -21,7 +21,7 @@ am git
 git hub [username :- vamshiamruthapu]
 git hub [password :- Vamshi@101]
 docker hub [username :- vamshiamruthapu]
-docker hub [password :- Vamshi@12345]
+docker hub [password :- Vamshi@1234]
 
 ----------------------------ubuntu installation-----------------------------------
 apt-get update
@@ -739,6 +739,49 @@ wget https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bi
   108  ll
   109  ls -la target/
   110  ll
+
+-------------dockerfile creation process---------------
+ yum install docker -y
+    2  docker --version
+    3  service docker start
+    4  service docker status
+    5  docker images
+    6  docker ps -a
+    7  vi Dockerfile
+    8  docker build -t image1 .
+    9  ll
+   10  docker images
+   11  docker ps -a
+   12  docker run -it --name cont1 image1 /bash
+   13  docker run -it --name cont1 image1 /bin/bash
+   14  docker rm cont1
+   15  docker run -it --name cont1 image1 /bin/bash
+   16  vi Dockerfile
+   17  docker build -t image2
+   18  docker buildx -t image2
+   19  docker build -t image2
+   20  exit
+   21  docker build -t image2 .
+   22  vi file1
+   23  cat Dockerfile
+   24  touch test
+   25  tar -cvf test.tar test
+   26  ll
+   27  gzip test.tar
+   28  ll
+   29  rm -rf test
+   30  ll
+   31  docker build -t image2 .
+   32  docker images
+   33  docker ps -a
+   34  docker run -it --name cont2 image2 /bin/bash
+   35  vi Dockerfile
+   36  docker start cont2
+   37  docker attach cont2
+   38  ll
+   39  cat Dockerfile
+   40  docker images
+   41  docker ps -a
 
 
 
