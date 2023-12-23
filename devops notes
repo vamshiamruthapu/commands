@@ -2029,3 +2029,432 @@ for(int i=0;i<100;i++){
 LOGFILE=/tmp/something.log
 
 ls -ltr &>> $LOGFILE
+----------------------------------session 14-------------------------------
+
+variables
+
+DATE=2023-09-09
+
+using loops install any no of packages
+--------------------------------------
+sh 13-install-packages.sh git mysql gcc postfix net-tools
+
+$# --> no of args
+$@ --> all args
+
+1. check root user or not
+2. if root user
+		check package is already installed or not
+			if installed skip it and tell user, already installed
+			if not installe, install it
+			validate it
+	if not root user
+		throw the error
+		
+1. delete old log files, disk usage monitor
+
+SED editor = streamline editor = temporary editor
+--------------------------------
+CRUD
+
+sed -e '1 a I am learning Shell script' <file-name>
+
+-e = temp change
+-i = perm change
+
+sed -e '1 i I am learning Shell script' <file-name>
+
+lines update
+--------------
+sed -e 's/word-to-find/word-to-replace/' --> by default first occurence in every lines
+sed -e 's/word-to-find/word-to-replace/g'
+
+sed -e '/learning/ d' passwd
+
+sed -e '1d' passwd
+
+------------------------------------session16-------------------------------------
+
+variables
+data types
+conditions
+loops
+functions
+
+
+algorithm
+-----------------
+
+
+delete old log files
+disk usage and alert
+
+
+1. we have a folder where we are storing log files
+/tmp/shell-script-logs
+
+2. delete log files more than 14 days, only .log extensions not anyother files
+
+
+source-directory
+search .log files and more than 14 days old
+rm -rf
+
+find . -type f -mtime +14
+,
+;
+
+disk usage
+-----------------------
+monitoring team --> servers, websites
+
+servers are down/more memory --> alert DevOps Team
+
+Hard Disk --> just beside our laptop
+G/M Drive --> they are in network, connecting through internet
+
+lsblk
+sudo file -s /dev/xvdf
+sudo lsblk -f
+sudo mkfs -t xfs /dev/xvdf
+sudo mkdir /data
+sudo mount /dev/xvdf /data
+
+| --> or
+& --> and
+
+chrome --> gmail.com --> compose msg --> send
+
+Linux --> send a gmail
+
+@cognizant.com
+@tcs.com
+
+
+yum -y install postfix cyrus-sasl-plain mailx
+
+
+postfix --> Hit Gmail API
+cyrus-sasl-plain --> authentication
+mailx --> command to send email
+
+from_address --> who is sending
+
+devopsandcloudwithsiva@gmail.com --> from address
+info@joindevops.com --> to adress
+
+ujuggcnzjmldgmkj
+
+[smtp.gmail.com]:587 devopsandcloudwithsiva:ujuggcnzjmldgmkj
+
+echo "This is a test mail & Date $(date)" | mail -s "message" info@joindevops.com
+
+
+delete old log files
+---------------------
+1. user has to provide source directory
+2. action --> archieve/delete
+3. if he selects archieve --> where is the destination directory
+4. time --> optional, if he gives take it, otherwise 14 days default
+5. memory --> optional. if he dont give dont consider, if he gives consider it...
+
+old-logs.sh -s <source-dir> -a <archieve/delete> -d <destination-dir> -t <no-days> -m <memory-in-mb>
+
+algorithm
+---------------
+-s, -a, -d --> check all these inputs, if he dont give tell him the usage....
+
+source directory exists or not
+destination directory exists or not
+
+-a --> archieve if he dont give destination dir thr
+
+-------------------------------------------session 17------------------------------------
+
+crontab
+
+5 4 * * *
+
+$1 $2
+
+greeting
+
+sh greeting.sh -n <name> -w <wishes>
+
+usage
+
+by default I want to say Good Morning. If user wants another wishes he can give Good Evening.
+
+AWS instances, route 53 records
+------------------------------------------
+1. we need to create ec2 instances
+2. mongodb, mysql, shipping we are creating t3.small remaining t2.micro
+3. creating route53 records, web public ip remaining private ip
+
+IAM --> identity access management
+-----------------------------------
+Authentication --> username/password
+Authorization
+
+Authorization --> you need to have access to enter project bays
+
+Roles --> permissions
+---------------
+Team Manager --> super admin
+Team Lead --> admin
+Senior Engineers --> normal access
+Trainee --> READ access
+
+
+user == person --> username/password = authentication
+
+Authorization
+----------------
+Role and permissions
+
+user --> what is the role of user ? --> what are the permissions attached to that role
+
+Permissions
+-----------------
+Nouns and Verbs
+
+AWS --> EC2, VPC, Route53, CDN, IAM == AWS resources
+
+Resource
+-------------
+web, cart, catalouge, hostedzone == nouns
+create, update, read, delete == actions == verbs
+
+sivakumar == trainee
+-------------------
+EC2 --> Web --> READ
+
+TRISHANT == Junior DevOps Engineer
+
+EC2 --> WEB --> READ and UPDATE
+
+Sandhya == Senior Engineer
+
+EC2 --> WEB --> Create, READ, UPDATE
+
+Aditya == TEAM Lead
+
+EC2 --> WEB, CART, CATALOGUE, etc --> Create, READ, UPDATE
+
+Akhila --> TEAM Manager
+
+EC2 --> WEB, CART, CATALOGUE, etc --> Create, READ, UPDATE and DELETE
+
+Resources also should have access to access another resources
+----------------------------------------------------------
+Roles to resources 
+
+instance can create other instance
+
+aws ec2 run-instances --image-id ami-03265a0778a880afb --instance-type t2.micro --security-group-ids sg-087e7afb3a936fce7
+
+ami-03265a0778a880afb
+
+1. create one user and gave admin access
+2. create access keys
+
+AKIAUSW45M2WHLZYIMFP
+fOOpKufyvMMf7ZlyqnmnwGvg1kC+eUB9GRBCYTav
+
+created role
+attached permissions
+named it
+
+attach this role to instance...
+
+algorithm
+---------------
+1. instance creation
+
+aws ec2 run-instances --image-id ami-03265a0778a880afb --instance-type t2.micro --security-group-ids sg-087e7afb3a936fce7 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=production}]' 
+
+2. mongodb, mysql, shipping t3.small otherwise t2.micro
+3. we need ip address to create route53 record.
+
+
+aws route53 change-resource-record-sets \
+  --hosted-zone-id 1234567890ABC \
+  --change-batch '
+  {
+    "Comment": "Testing creating a record set"
+    ,"Changes": [{
+      "Action"              : "CREATE"
+      ,"ResourceRecordSet"  : {
+        "Name"              : "'" $ENV "'.company.com"
+        ,"Type"             : "A"
+        ,"TTL"              : 1
+        ,"ResourceRecords"  : [{
+            "Value"         : ""
+        }]
+      }
+    }]
+  }
+  '
+
+improvements
+---------------
+if web, get public ip and create records
+check if records already exists
+	if exists update
+	if not exist create
+
+-------------------------------------------session18------------------------------------
+
+Ansible
+-------------------
+shell disadvantages
+
+1. shell script will not work in all linux distros.
+2. scalability --> difficult to manage more no of servers
+3. error handling and validations, need to manual
+4. readability
+5. shell will only work for linux, will not work with external systems
+
+Configuration management
+-------------------
+configure your laptop
+to make server ready for application deployment is called configuring server
+
+deployment
+------------
+1. stop the server
+2. remove old code
+3. download new code
+4. restart server
+
+
+Idempotence --> 
+
+if you run a program multiple time, that can create samething multiple times
+even you run your program infinite times, it should not create any damage
+
+providing same result irrespective of no.of executions is called idempotence
+
+
+useradd ramesh
+1. it will create multiple ramesh users --> bad
+2. it will try to create user, but got error and program exit --> no
+
+ansible --> if not exist it will create, if exist it will ignore --> yes
+
+
+Delhi --> Hyderabad --> today
+
+Delhi --> HYD DTDC
+
+You  going to HYD DTDC everyday and ask for courier
+2nd day
+3rd day
+4th day
+5th day --> got courier
+
+HYD DTDC --> deliver to home
+
+traffic increases
+fuel consumption
+resources waste
+time waste
+
+pull based configure
+-------------------
+chef server
+
+we will configure agents to check every 1 hour
+
+24*7 = 168 time connect to server
+bandwidth waste
+resources consumption like CPU and memory
+
+pull configuration have one advantage --> at the end of ansible
+
+Linux --> everything is called as command
+ansible --> module/collection
+
+one by one module --> success/fail
+
+keep all modules/commands in a file
+keep some validations, conditions, loops, variables
+now run the file
+
+Playbook --> a file of modules/collections
+YAML --> yet another markup language
+
+
+deposit form/ withdrawal form
+-----------------------------
+
+NAME
+A/C
+DATE
+BRANCH
+AMOUNT
+
+AMOUNT
+NAME
+A/C
+BRANCH
+
+NAME
+A/C
+DATE
+BRANCH
+AMOUNT
+
+DTO --> data transfer object
+----------------------------
+XML --> Extensive Markup Language
+
+<User>
+	<Email>info@joindevops.com</Email>
+	<Password>admin123</Password>
+</User>
+
+JSON --> Java script object notation
+----------------------------
+
+{
+	"Emai": "info@joindevops.com",
+	"Password":"admin123"
+}
+
+YAML
+----------------------------
+email: "info@joindevops.com"
+password: "admin123"
+
+
+address_____________
+
+addressline1
+addressline2
+street
+city
+
+--------------------------------------session19-----------------------------
+
+variables
+--------------------
+DRY --> dont repeat yourself
+
+variables we keep aside from the code, so that code will not be disturbed when we are doing changes.
+
+variable holds a value, you can use it anywhere
+
+data types
+-------------------
+list
+map
+boolean
+key, value
+
+conditions
+-----------------
+id roboshop
+if not exist we created, if exist we skipped
+
+SOME_VAR=$(command)
