@@ -2490,3 +2490,113 @@ ansible controller/server --> catalogue
 'rc': 0, 
 'cmd': 
 ['mongo', '--host', 'mongodb.daws76s.online', '--quiet', '--eval', 'db = db.getSiblingDB(\"catalogue\"); db.products.count()'], 'start': '2023-12-22 02:39:19.967161', 'end': '2023-12-22 02:39:20.070547', 'delta': '0:00:00.103386', 'msg': '', 'stdout_lines': ['11'], 'stderr_lines': [], 'failed': False}
+
+
+--------------------------------------session23===============================================
+
+ansible.cfg --> ansible configuration file
+
+1. ANSIBLE_CONFIG (environment variable if set)
+
+2. ansible.cfg (in the current directory)
+
+3. ~/.ansible.cfg (in the home directory) --> it should be .
+
+4. /etc/ansible/ansible.cfg
+
+{
+"orderid": "99d85872-f551-4c7b-b978-35fe5cbea932",
+"user": "siva",
+"cart": 
+	{"total": 1646.25, "tax": 274.375, "items": [{"qty": 1, "sku": "ROB-1", "name": "Robbie", "price": 1200, "subtotal": 1200}, {"qty": 1, "sku": "SHIP", "name": "shipping to India Hyderabad-Deccan", "price": 446.25, "subtotal": 446.25}]}}
+	
+tags
+---------------
+
+
+new deployment
+--------------
+stop the service
+remove old code
+download latest code
+restart server
+
+configuration management
+------------------------
+DEV --> versions update, installations, etc.
+QA
+UAT
+PRE-PROD
+PROD
+
+DB password, endpoints, etc.
+
+
+Ansible
+--------------
+AMI
+
+RHEL-8
+
+base OS + harden CSI benchmarking + default packages + company certificates + antivirus + sshd configure + banner
+
+RHEL-8-joindevops
+
+They get all the servers running in cloud --> AMI version
+	if OS is more than 3 months old, we will send an alert
+	
+key based --> configure pem key in ansible server
+
+-----------------------------------session24-------------------------------------
+
+ansible vault
+--------------
+storage of secrets
+
+asaiavaa --> siva
+adaeavaoapas --> devops
+
+encoding --> a proper pattern to encode the text
+aadaaeaavaaoaapaas
+
+encryption with password --> AES256 (mathematic algorithm)
+
+dfkgfagjg;gjgg --> devops
+
+u4392854194586174598yhf --> devops
+
+how to create ansible vault
+--------------------------
+ansible-vault create /path/some-name.yaml
+
+dynamic inventory
+--------------------------
+we have servers, domains
+
+we had on premise servers, apps are deployed manually
+we used shell script to configure
+
+2016 --> internet usage, digital revolution
+2010/2012 --> EU, US
+
+autoscaling of servers highly required
+
+
+we are using ansible to configure
+	- if you have more servers dynamically
+	
+10 servers now --> because of traffic
+
+I need to run ansilbe playbook against these servers
+
+ansible --> AWS --> fetch ip address of the servers dynamically
+
+fetch instances with name web in us-east-1
+
+plug and play
+
+if ansible have plugin to connect aws ec2, we can fetch ip addresses
+
+boto and botocore --> aws python modules
+
+ansible uses boto and botocore in background to connect aws
