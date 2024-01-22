@@ -108,6 +108,11 @@ ssh-copy-id jenkins@publicipv4address
 
 ----------------jenkins setup in linux-------------
 
+wget https://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/c/ca-certificates-2023.2.62_v7.0.401-4.fc40.noarch.rpm
+yum localinstall ~/ca-certificates-2023.2.62_v7.0.401-4.fc40.noarch.rpm
+
+
+
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 yum install fontconfig java-17-openjdk
