@@ -1,3 +1,13 @@
+
+
+docker run -d -p 8080:8080 -v /mnt/d/vamshi-practice/jenkins_home:/var/jenkins_home jenkins/jenkins
+docker exec -it -u root <container-id> bash
+apt-get update
+apt-get install git
+apt-get install maven
+
+
+
 ---------------------centos installation------------------------------
 yum update -y
 yum install git
