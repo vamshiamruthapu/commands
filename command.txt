@@ -7,6 +7,9 @@ apt-get install git
 apt-get install maven
 
 
+git clone https://github.com/spring-guides/gs-accessing-data-mysql.git
+
+
 
 ---------------------centos installation------------------------------
 yum update -y
