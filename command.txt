@@ -1,4 +1,29 @@
 
+sudo usermod -aG docker ec2-user
+database setup:
+====================================================================
+docker run --name='my_sql_container' -d -p 3306:3306 mysql/mysql-server
+docker log -f --tail 1000 my_sql_container
+
+docker exec -it my_sql_container bash
+mysql -u root -p
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'Vamshi@1234';
+create database db_example;
+CREATE USER 'springuser'@'%' IDENTIFIED BY 'ThePassword';
+GRANT ALL PRIVILEGES ON *.* TO 'springuser'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+create table user(id integer(20), name character(20), email character(30));
+
+application conatiner run:
+===============================================================================
+docker run -itd -e MYSQL_HOST=100.24.2.36 -p 8080:8080 vamshiamruthapu/sample-java-app:12
+
+curl http://100.24.2.36:8080/demo/add -d name=vamshi -d email=vamshi@gmail.com
+
+
+
 
 docker run -d -p 8080:8080 -v /mnt/d/vamshi-practice/jenkins_home:/var/jenkins_home jenkins/jenkins
 docker exec -it -u root <container-id> bash
