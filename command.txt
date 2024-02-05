@@ -1,3 +1,47 @@
+----------------------------------Completed----------------------------------
+
+-------------------------------Ansible-AdHoc-Commands-----------
+ansible -i hosts all -m ping
+ansible -i hosts all -m ping -f 1
+ansible -i hosts all -m command -a hostname
+ansible -i hosts all -m command -a uptime
+ansible -i hosts all -m command -a free
+ansible -i hosts all -m command -a df -h
+ansible app -s -a "yum install -y docker-engine"
+ansible -i hosts all  -a "cat /etc/passwd"
+ansible -i hosts servers:app  -a free --limit machine2
+ ansible -i hosts all -a uptime --limit servers
+ansible -i hosts prod -a free (clildren as app & servers)
+ansible -i hosts 'servers:!app' -a free
+ansible -i hosts 'servers!:app' -a free
+ansible -i hosts servers[0] -a uptime
+ansible -i hosts servers[0:2] -a uptime
+ansible -i hosts servers[2:] -a uptime
+ansible -i hosts  servers -m user -a "user=testuser password=$1$pGP3ICXv$6PEDQI/N1RgLzVr/l00YY0"
+ansible app -s -m group -a "name=admin state=present"
+ansible app -s -m user -a "name=devops group=admin createhome=yes"
+ansible app -m copy -a "src=/vagrant/test.txt dest=/tmp/test.txt"
+
+----------------------------------Completed----------------------------------
+
+-------------------------------Ansible-Playbook-Commands---------------------
+ansible-playbook playbook.yml --list-hosts
+ansible-playbook playbook.yml --syntax-check
+ansible-playbook playbook.yml --syntax-check --verbose
+
+HOST-PATTERN:
+https://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html
+
+https://www.middlewareinventory.com/blog/ansible-ad-hoc-command-examples-cheat-sheet/
+https://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html
+
+https://docs.ansible.com/ansible/latest/user_guide/intro_adhoc.html
+
+
+
+
+
+
 
 sudo usermod -aG docker ec2-user
 database setup:
