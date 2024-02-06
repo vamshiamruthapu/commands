@@ -1,3 +1,142 @@
+ exit
+    2  ssh ec2-user@3.89.10.255
+    3  ssh ec2-user@3.93.212.14
+    4  ssh ec2-user@52.207.209.54
+    5  vi ansible_hosts
+    6  ansible --version
+    7  ansible -i ansible_hosts all -m ping
+    8  ansible --version
+    9  vi /etc/ansible/ansible.cfg
+   10  ansible -i ansible_hosts all -m ping
+   11  ansible -i ansible_hosts all -m ping --ansible_user=ec2-user
+   12  ansible -i ansible_hosts all -m ping --become-user ec2-user
+   13  cat ansible_hosts
+   14  vi /etc/ansible/ansible.cfg
+   15  ansible -i ansible_hosts all -m ping
+   16  vi /etc/ansible/ansible.cfg
+   17  vi ansible_hosts
+   18  ansible -i ansible_hosts all -m ping
+   19  vi ansible_hosts
+   20  ansible -i ansible_hosts all -m ping
+   21  vi /etc/ansible/ansible.cfg
+   22  ansible -i ansible_hosts all -m ping
+   23  vi /etc/ansible/ansible.cfg
+   24  ansible -i ansible_hosts all -m ping
+   25  vi /etc/ansible/ansible.cfg
+   26  vi ansible_hosts
+   27  ansible -i ansible_hosts all -m ping
+   28  ansible -i ansible_hosts all -m ping --become-user root
+   29  ansible --help
+   30  ansible -i ansible_hosts all --become-user root -m ping
+   31  ansible -i ansible_hosts --become-user root all -m ping
+   32  vi /etc/ansible/ansible.cfg
+   33  vi ansible_hosts
+   34  ansible -i ansible_hosts --become-user root all -m ping
+   35  ansible -i ansible_hosts --become-user ec2-user all -m ping
+   36  ansible --become-user ec2-user -i ansible_hosts all -m ping
+   37  cat /etc/ansible/ansible.cfg
+   38  ansible localhost -m ping -e 'remote_user=ec2-user"
+   39  ansible localhost -m ping -e 'remote_user=ec2-user'
+   40  vi /etc/ansible/ansible.cfg
+   41  ansible --become-method sudo -i ansible_hosts all -m shell -a "yum install git"
+   42  vi /etc/ansible/ansible.cfg
+   43  ansible --become-method sudo -i ansible_hosts all -m shell -a "yum install git"
+   44  ansible --become-method sudo -i ansible_hosts all -m shell -a "yum install -y git"
+   45  ansible -i ansible_hosts all -m shell -a "sudo yum install -y git"
+   46  ansible -i ansible_hosts all -m shell -a "sudo yum remove -y git"
+   47  ansible -i ansible_hosts all -b -m shell -a "yum install -y git"
+   48  ansible --help
+   49  ansible -i ansible_hosts all -m shell -a "sudo yum remove -y git"
+   50  ansible -i ansible_hosts all --become-method -m shell -a "yum install -y git"
+   51  ansible -i ansible_hosts all --become-method sudo -m shell -a "yum install -y git"
+   52  `ansible-doc -t become -l
+   53  '
+   54  ansible-doc -t become -l
+   55  ansible -i ansible_hosts all --become-method ansible.builtin.sudo -m shell -a "yum install -y git"
+   56  ansible -i ansible_hosts all -b -m shell -a "yum install -y git"
+   57  exit
+
+
+
+xit
+    2  ssh ec2-user@3.89.10.255
+    3  ssh ec2-user@3.93.212.14
+    4  ssh ec2-user@52.207.209.54
+    5  vi ansible_hosts
+    6  ansible --version
+    7  ansible -i ansible_hosts all -m ping
+    8  ansible --version
+    9  vi /etc/ansible/ansible.cfg
+   10  ansible -i ansible_hosts all -m ping
+   11  ansible -i ansible_hosts all -m ping --ansible_user=ec2-user
+   12  ansible -i ansible_hosts all -m ping --become-user ec2-user
+   13  cat ansible_hosts
+   14  vi /etc/ansible/ansible.cfg
+   15  ansible -i ansible_hosts all -m ping
+   16  vi /etc/ansible/ansible.cfg
+   17  vi ansible_hosts
+   18  ansible -i ansible_hosts all -m ping
+   19  vi ansible_hosts
+   20  ansible -i ansible_hosts all -m ping
+   21  vi /etc/ansible/ansible.cfg
+   22  ansible -i ansible_hosts all -m ping
+   23  vi /etc/ansible/ansible.cfg
+   24  ansible -i ansible_hosts all -m ping
+   25  vi /etc/ansible/ansible.cfg
+   26  vi ansible_hosts
+   27  ansible -i ansible_hosts all -m ping
+   28  ansible -i ansible_hosts all -m ping --become-user root
+   29  ansible --help
+   30  ansible -i ansible_hosts all --become-user root -m ping
+   31  ansible -i ansible_hosts --become-user root all -m ping
+   32  vi /etc/ansible/ansible.cfg
+   33  vi ansible_hosts
+   34  ansible -i ansible_hosts --become-user root all -m ping
+   35  ansible -i ansible_hosts --become-user ec2-user all -m ping
+   36  ansible --become-user ec2-user -i ansible_hosts all -m ping
+   37  cat /etc/ansible/ansible.cfg
+   38  ansible localhost -m ping -e 'remote_user=ec2-user"
+   39  ansible localhost -m ping -e 'remote_user=ec2-user'
+   40  vi /etc/ansible/ansible.cfg
+   41  ansible --become-method sudo -i ansible_hosts all -m shell -a "yum install git"
+   42  vi /etc/ansible/ansible.cfg
+   43  ansible --become-method sudo -i ansible_hosts all -m shell -a "yum install git"
+   44  ansible --become-method sudo -i ansible_hosts all -m shell -a "yum install -y git"
+   45  ansible -i ansible_hosts all -m shell -a "sudo yum install -y git"
+   46  ansible -i ansible_hosts all -m shell -a "sudo yum remove -y git"
+   47  ansible -i ansible_hosts all -b -m shell -a "yum install -y git"
+   48  ansible --help
+   49  ansible -i ansible_hosts all -m shell -a "sudo yum remove -y git"
+   50  ansible -i ansible_hosts all --become-method -m shell -a "yum install -y git"
+   51  ansible -i ansible_hosts all --become-method sudo -m shell -a "yum install -y git"
+   52  `ansible-doc -t become -l
+   53  '
+   54  ansible-doc -t become -l
+   55  ansible -i ansible_hosts all --become-method ansible.builtin.sudo -m shell -a "yum install -y git"
+   56  ansible -i ansible_hosts all -b -m shell -a "yum install -y git"
+   57  exit
+   58  cat ansible_hosts
+   59  vi ansible_hosts
+   60  ansible -i ansible_hosts all -b -m ping
+   61  vi ansible_hosts
+   62  ansible -i ansible_hosts all -b -m ping
+   63  ansible -i ansible_hosts qa -b -m ping
+   64  ansible -i ansible_hosts prod -b -m ping
+   65  ansible -i ansible_hosts dev,qa -b -m ping
+   66*
+   67  ansible -i ansible_hosts -b -m yum -a "name=docker state=present"
+   68  ansible -i ansible_hosts -b -m ansible.builtin.yum -a "name=docker state=latest"
+   69  ansible -i ansible_hosts all -b -m yum -a "name=docker state=latest"
+   70  ansible -i ansible_hosts all -b -m service -a "name=docker state=started enabled=yes"
+
+ansible -i ansible_hosts dev -b -m docker_container -a "name=httpd-container-dev state=absent"
+ansible -i ansible_hosts dev -b -m docker_container -a "name=httpd-container-dev image=httpd state=started detach=true"
+ansible -i ansible_hosts dev -b -m docker_container -a "name=httpd-container-dev image=httpd state=started detach=true ports=8888:8080"
+
+
+
+
+
 
 -------------------------------Ansible-AdHoc-Commands-----------
 ansible -i hosts all -m ping
