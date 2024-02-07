@@ -1,4 +1,10 @@
- exit
+vi /etc/ansible/ansible.cfg
+[defaults]
+host_key_checking = False
+
+
+
+
     2  ssh ec2-user@3.89.10.255
     3  ssh ec2-user@3.93.212.14
     4  ssh ec2-user@52.207.209.54
@@ -58,7 +64,11 @@
 
 
 
-xit
+vi /etc/ansible/ansible.cfg
+[defaults]
+host_key_checking = False
+
+
     2  ssh ec2-user@3.89.10.255
     3  ssh ec2-user@3.93.212.14
     4  ssh ec2-user@52.207.209.54
