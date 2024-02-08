@@ -64,10 +64,26 @@ host_key_checking = False
 
 
 
+-------------------------------------------------------------------------------------------------------------------------
 vi /etc/ansible/ansible.cfg
 [defaults]
 host_key_checking = False
 
+ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa <<< y
+
+vi ansible_hosts
+#[all:vars]
+#ansible_ssh_private_key_file=~/mykeypair.pem
+
+ansible -i ansible_hosts all -m copy -a "src=~/.ssh/id_rsa.pub dest=~"
+ansible -i ansible_hosts all -m shell -a "cat ~/id_rsa.pub>>~/.ssh/authorized_keys"
+ansible -i ansible_hosts all -m shell -a "rm -rf ~/id_rsa.pub"
+
+
+vi /etc/ansible/ansible.cfg
+[defaults]
+host_key_checking = False
+---------------------------------------------------------------------------------------------------------------------------
 
     2  ssh ec2-user@3.89.10.255
     3  ssh ec2-user@3.93.212.14
