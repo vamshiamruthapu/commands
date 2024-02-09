@@ -1,3 +1,92 @@
+sudo yum install ansible -y
+    2  ll
+    3  ll
+    4  sudo vi /etc/ansible/ansible.cfg
+    5  ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa <<< y
+    6  vi ansible_hosts
+    7  ansible -i ansible_hosts all -m copy -a "src=~/.ssh/id_rsa.pub dest=~"
+    8  sudo ansible -i ansible_hosts all -m copy -a "src=~/.ssh/id_rsa.pub dest=~"
+    9  ansible -i ansible_hosts all -m shell -a "cat ~/id_rsa.pub>>~/.ssh/authorized_keys"
+   10  ansible -i ansible_hosts all -m shell -a "rm -rf ~/id_rsa.pub"
+   11  vi ansible_hosts
+   12  ansible -i ansible_hosts all -m copy -a "src=~/.ssh/id_rsa.pub dest=~"
+   13  ansible -i ansible_hosts all -m shell -a "cat ~/id_rsa.pub>>~/.ssh/authorized_keys"
+   14  sudo vi ansible_hosts
+   15  ll
+   16  vi ansible_hosts
+   17  cat ansible_hosts
+   18  vi jenkins.pem
+   19  ansible -i ansible_hosts all -m ping
+   20  ls -l
+   21  chmod 600 jenkins.pe
+   22  chmod 600 jenkins.pem
+   23  ansible -i ansible_hosts all -m ping
+   24  ansible -i ansible_hosts all -m copy -a "src=~/.ssh/id_rsa.pub dest=~"
+   25  ansible -i ansible_hosts all -m shell -a "cat ~/id_rsa.pub>>~/.ssh/authorized_keys"
+   26  ansible -i ansible_hosts all -m shell -a "rm -rf ~/id_rsa.pub"
+   27  vi ansible_hosts
+   28  ansible -i ansible_hosts all -m ping
+   29  ll
+   30  ansible -i ansible_hosts all -b -m shell -a "yum install -y git"
+   31  ansible -i ansible_hosts all -b -m service -a "name=docker state=started enabled=yes"
+   32  ansible -i ansible_hosts -b -m yum -a "name=docker state=present"
+   33  ansible -i ansible_hosts -b -m ansible.builtin.yum -a "name=docker state=latest"
+   34  ansible -i ansible_hosts all -b -m yum -a "name=docker state=latest"
+   35  ansible -i ansible_hosts all -b -m service -a "name=docker state=started enabled=yes"
+   36  ansible -i ansible_hosts dev -b -m docker_container -a "name=httpd-container-dev image=httpd state=started detach=true ports=8888:8080"
+   37  vi nginx.yml
+   38  ansible-playbook nginx.yml --list-hosts
+   39  ansible-playbook playbook.yml --syntax-check
+   40  ansible-playbook nginx.yml --syntax-check
+   41  ansible-playbook nginx.yml --syntax-check --verbose
+   42  vi nginx.yml
+   43  ansible-playbook -i ansible_hosts nginx.yml -b
+   44  ansible-playbook nginx.yml --list-hosts
+   45  ansible-playbook -i ansible_hosts nginx.yml --list-hosts
+   46* ansible-playbook -i ansible_hosts nginx.yml --
+   47  ansible-playbook -i ansible_hosts nginx.yml --syntax-check --verbose
+   48  ll
+   49  ansible -i ansible_hosts dev -b -m docker_container -a "name=nginx-container-dev image=nginx state=started detach=true ports=8888:8080"
+   50  ansible -i ansible_hosts dev -b -m docker_container -a "name=nginx-container-dev image=nginx state=started detach=true ports=8889:8080"
+   51  ll
+   52  vi nginx.yml
+   53  ansible-playbook -i ansible_hosts nginx.yml -b
+   54  ansible-playbook nginx.yml --list-hosts
+   55  le-playbook -i ansible_hosts nginx.yml -b
+   56  ll
+   57  vi git.yml
+   58  ansible-playbook -i inventory.cfg nginx.yml -b
+   59  ansible-playbook -i ansible_hosts nginx.yml -b
+   60  ll
+   61  ansible -i ansible_hosts dev -m package -a "name=docker state=present"
+   62  ansible -i ansible_hosts dev -b -m package -a "name=docker state=present"
+   63  ansible -i ansible_hosts dev -b -m package -a "name=httpd state=present"
+   64  history
+   65  cat /etc/ssh/sshd_config
+   66  sudo cat /etc/ssh/sshd_config
+   67  cp nginx.yml write-content-to-file.yml
+   68  vi write-content-to-file.yml
+   69  ansible-playbook -i ansible_hosts write-content-to-file.yml
+   70  vi write-content-to-file.yml
+   71  ansible-playbook -i ansible_hosts write-content-to-file.yml
+   72  vi write-content-to-file.yml
+   73  ansible-playbook -i ansible_hosts write-content-to-file.yml
+   74  ansible-playbook -i ansible_hosts write-content-to-file.yml -v
+   75  vi write-content-to-file.yml
+   76  ansible-playbook -i ansible_hosts write-content-to-file.yml -v
+   77  cat write-content-to-file.yml
+   78  vi write-content-to-file.yml
+   79  ansible-playbook -i ansible_hosts write-content-to-file.yml -v
+   80  vi write-content-to-file.yml
+   81  ansible-playbook -i ansible_hosts write-content-to-file.yml -v
+   82  vi write-content-to-file.yml
+   83  ansible-playbook -i ansible_hosts write-content-to-file.yml -v
+   84  cat write-content-to-file.yml
+
+
+
+
+
 vi /etc/ansible/ansible.cfg
 [defaults]
 host_key_checking = False
