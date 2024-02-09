@@ -84,7 +84,9 @@ sudo yum install ansible -y
    84  cat write-content-to-file.yml
 
 
-
+ClientAliveInterval 10
+ClientAliveCountMax 6
+TCPKeepAlive yes
 
 
 vi /etc/ansible/ansible.cfg
