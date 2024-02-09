@@ -189,6 +189,36 @@ ansible app -m copy -a "src=/vagrant/test.txt dest=/tmp/test.txt"
 ----------------------------------Completed----------------------------------
 
 -------------------------------Ansible-Playbook-Commands---------------------
+
+vi nginx_install.yml
+
+---
+- hosts: web
+  tasks:
+    - name: install nginx
+      apt: name=nginx state=latest
+    - name: start nginx
+      service:
+          name: nginx
+          state: started
+
+ansible-playbook -i inventory.cfg nginx_install.yml -b
+-----------------------------------------------------------------------------------------
+---
+- hosts: web
+  tasks:
+    - name: stop nginx
+      service:
+          name: nginx
+          state: stopped
+    - name: uninstall nginx
+      apt: name=nginx state=absent
+
+ansible-playbook -i inventory.cfg uninstall_nginx.yaml -b
+-------------------------------------------------------------------------------------------------------------------
+
+
+
 ansible-playbook playbook.yml --list-hosts
 ansible-playbook playbook.yml --syntax-check
 ansible-playbook playbook.yml --syntax-check --verbose
