@@ -156,6 +156,12 @@ host_key_checking = False
 
 
 -------------------------------------------------------------------------------------------------------------------------
+sudo vi /etc/ssh/sshd_config
+ClientAliveInterval 10
+ClientAliveCountMax 6
+TCPKeepAlive yes
+sudo systemctl restart sshd
+
 vi /etc/ansible/ansible.cfg
 [defaults]
 host_key_checking = False
