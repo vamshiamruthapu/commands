@@ -173,6 +173,11 @@ ansible -i ansible_hosts all -m copy -a "src=~/.ssh/id_rsa.pub dest=~"
 ansible -i ansible_hosts all -m shell -a "cat ~/id_rsa.pub>>~/.ssh/authorized_keys"
 ansible -i ansible_hosts all -m shell -a "rm -rf ~/id_rsa.pub"
 
+ansible -i ansible_hosts all -m copy -a "src=~/jenkins-master.pub dest=~"
+ansible -i ansible_hosts all -m shell -a "cat ~/jenkins-master.pub>>~/.ssh/authorized_keys"
+ansible -i ansible_hosts all -m shell -a "rm -rf ~/jenkins-master.pub"
+
+
 
 vi /etc/ansible/ansible.cfg
 [defaults]
