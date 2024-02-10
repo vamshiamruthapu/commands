@@ -1,6 +1,4 @@
-sudo yum install ansible -y
-    2  ll
-    3  ll
+
     4  sudo vi /etc/ansible/ansible.cfg
     5  ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa <<< y
     6  vi ansible_hosts
@@ -12,13 +10,11 @@ sudo yum install ansible -y
    12  ansible -i ansible_hosts all -m copy -a "src=~/.ssh/id_rsa.pub dest=~"
    13  ansible -i ansible_hosts all -m shell -a "cat ~/id_rsa.pub>>~/.ssh/authorized_keys"
    14  sudo vi ansible_hosts
-   15  ll
    16  vi ansible_hosts
    17  cat ansible_hosts
    18  vi jenkins.pem
    19  ansible -i ansible_hosts all -m ping
    20  ls -l
-   21  chmod 600 jenkins.pe
    22  chmod 600 jenkins.pem
    23  ansible -i ansible_hosts all -m ping
    24  ansible -i ansible_hosts all -m copy -a "src=~/.ssh/id_rsa.pub dest=~"
@@ -83,86 +79,14 @@ sudo yum install ansible -y
    83  ansible-playbook -i ansible_hosts write-content-to-file.yml -v
    84  cat write-content-to-file.yml
 
-
-ClientAliveInterval 10
-ClientAliveCountMax 6
-TCPKeepAlive yes
-
-
-vi /etc/ansible/ansible.cfg
-[defaults]
-host_key_checking = False
-
-
-
-
-    2  ssh ec2-user@3.89.10.255
-    3  ssh ec2-user@3.93.212.14
-    4  ssh ec2-user@52.207.209.54
-    5  vi ansible_hosts
-    6  ansible --version
-    7  ansible -i ansible_hosts all -m ping
-    8  ansible --version
-    9  vi /etc/ansible/ansible.cfg
-   10  ansible -i ansible_hosts all -m ping
-   11  ansible -i ansible_hosts all -m ping --ansible_user=ec2-user
-   12  ansible -i ansible_hosts all -m ping --become-user ec2-user
-   13  cat ansible_hosts
-   14  vi /etc/ansible/ansible.cfg
-   15  ansible -i ansible_hosts all -m ping
-   16  vi /etc/ansible/ansible.cfg
-   17  vi ansible_hosts
-   18  ansible -i ansible_hosts all -m ping
-   19  vi ansible_hosts
-   20  ansible -i ansible_hosts all -m ping
-   21  vi /etc/ansible/ansible.cfg
-   22  ansible -i ansible_hosts all -m ping
-   23  vi /etc/ansible/ansible.cfg
-   24  ansible -i ansible_hosts all -m ping
-   25  vi /etc/ansible/ansible.cfg
-   26  vi ansible_hosts
-   27  ansible -i ansible_hosts all -m ping
-   28  ansible -i ansible_hosts all -m ping --become-user root
-   29  ansible --help
-   30  ansible -i ansible_hosts all --become-user root -m ping
-   31  ansible -i ansible_hosts --become-user root all -m ping
-   32  vi /etc/ansible/ansible.cfg
-   33  vi ansible_hosts
-   34  ansible -i ansible_hosts --become-user root all -m ping
-   35  ansible -i ansible_hosts --become-user ec2-user all -m ping
-   36  ansible --become-user ec2-user -i ansible_hosts all -m ping
-   37  cat /etc/ansible/ansible.cfg
-   38  ansible localhost -m ping -e 'remote_user=ec2-user"
-   39  ansible localhost -m ping -e 'remote_user=ec2-user'
-   40  vi /etc/ansible/ansible.cfg
-   41  ansible --become-method sudo -i ansible_hosts all -m shell -a "yum install git"
-   42  vi /etc/ansible/ansible.cfg
-   43  ansible --become-method sudo -i ansible_hosts all -m shell -a "yum install git"
-   44  ansible --become-method sudo -i ansible_hosts all -m shell -a "yum install -y git"
-   45  ansible -i ansible_hosts all -m shell -a "sudo yum install -y git"
-   46  ansible -i ansible_hosts all -m shell -a "sudo yum remove -y git"
-   47  ansible -i ansible_hosts all -b -m shell -a "yum install -y git"
-   48  ansible --help
-   49  ansible -i ansible_hosts all -m shell -a "sudo yum remove -y git"
-   50  ansible -i ansible_hosts all --become-method -m shell -a "yum install -y git"
-   51  ansible -i ansible_hosts all --become-method sudo -m shell -a "yum install -y git"
-   52  `ansible-doc -t become -l
-   53  '
-   54  ansible-doc -t become -l
-   55  ansible -i ansible_hosts all --become-method ansible.builtin.sudo -m shell -a "yum install -y git"
-   56  ansible -i ansible_hosts all -b -m shell -a "yum install -y git"
-   57  exit
-
-
-
--------------------------------------------------------------------------------------------------------------------------
+=================================================================================================================================
 sudo vi /etc/ssh/sshd_config
 ClientAliveInterval 10
 ClientAliveCountMax 6
 TCPKeepAlive yes
 sudo systemctl restart sshd
 
-vi /etc/ansible/ansible.cfg
+sudo vi /etc/ansible/ansible.cfg
 [defaults]
 host_key_checking = False
 
@@ -171,24 +95,25 @@ ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa <<< y
 vi ansible_hosts
 #[all:vars]
 #ansible_ssh_private_key_file=~/jenkins.pem
+<add slaves ips>
 
 vi jenkins.pem
+<paste jenkins public key>
 chmod 700 jenkins.pem
 
 ansible -i ansible_hosts all -m copy -a "src=~/.ssh/id_rsa.pub dest=~"
 ansible -i ansible_hosts all -m shell -a "cat ~/id_rsa.pub>>~/.ssh/authorized_keys"
 ansible -i ansible_hosts all -m shell -a "rm -rf ~/id_rsa.pub"
 
+
+
+vi jenkins-master.pub
+<add jenkins-master.pub key>
+
 ansible -i ansible_hosts all -m copy -a "src=~/jenkins-master.pub dest=~"
 ansible -i ansible_hosts all -m shell -a "cat ~/jenkins-master.pub>>~/.ssh/authorized_keys"
 ansible -i ansible_hosts all -m shell -a "rm -rf ~/jenkins-master.pub"
-
-
-
-vi /etc/ansible/ansible.cfg
-[defaults]
-host_key_checking = False
----------------------------------------------------------------------------------------------------------------------------
+=================================================================================================================================
 
     2  ssh ec2-user@3.89.10.255
     3  ssh ec2-user@3.93.212.14
