@@ -163,8 +163,11 @@ host_key_checking = False
 ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa <<< y
 
 vi ansible_hosts
-#[all:vars]
-#ansible_ssh_private_key_file=~/mykeypair.pem
+#[all:vars]vi
+#ansible_ssh_private_key_file=~/jenkins.pem
+
+vi jenkins.pem
+chmod 700 jenkins.pem
 
 ansible -i ansible_hosts all -m copy -a "src=~/.ssh/id_rsa.pub dest=~"
 ansible -i ansible_hosts all -m shell -a "cat ~/id_rsa.pub>>~/.ssh/authorized_keys"
@@ -276,6 +279,9 @@ ansible -i hosts  servers -m user -a "user=testuser password=$1$pGP3ICXv$6PEDQI/
 ansible app -s -m group -a "name=admin state=present"
 ansible app -s -m user -a "name=devops group=admin createhome=yes"
 ansible app -m copy -a "src=/vagrant/test.txt dest=/tmp/test.txt"
+
+
+ansible -i ansible_hosts dev -m shell -a "java --version
 
 ----------------------------------Completed----------------------------------
 
