@@ -190,11 +190,7 @@ ansible -i ansible_hosts dev -b -m docker_container -a "name=httpd-container-dev
 ansible -i ansible_hosts dev -b -m docker_container -a "name=httpd-container-dev image=httpd state=started detach=true ports=8888:8080"
 
 
-
-
-
-
--------------------------------Ansible-AdHoc-Commands-----------
+-------------------------------Ansible-AdHoc-Commands-----------------------------------------
 ansible -i hosts all -m ping
 ansible -i hosts all -m ping -f 1
 ansible -i hosts all -m command -a hostname
@@ -216,15 +212,91 @@ ansible app -s -m group -a "name=admin state=present"
 ansible app -s -m user -a "name=devops group=admin createhome=yes"
 ansible app -m copy -a "src=/vagrant/test.txt dest=/tmp/test.txt"
 
+ -----------------------------------------------------------------------------------------------------
+                    ansible -i ansible_hosts dev -m shell -a "java --version
+ ----------------------------------------------------------------------------------------------------------------
+vi java.yml
+---
+- hosts: dev
+  become: true
+  vars:
+    jdk_download_url: https://download.java.net/java/GA/jdk18.0.2.1/db379da656dc47308e138f21b33976fa/1/GPL/openjdk-18.0.2.1_linux-x64_bin.tar.gz
+    jdk_download_location: /opt/openjdk-18.0.2.1_linux-x64_bin.tar.gz
+    java_home: /opt/jdk-18.0.2.1
+  tasks:
+    - name: Download the JDK binaries
+      get_url:
+        url: "{{ jdk_download_url }}"
+        dest: "{{ jdk_download_location }}"
+    - name: Unzip the downloaded file
+      unarchive:
+        src: "{{ jdk_download_location }}"
+        dest: /opt
+        remote_src: yes
+    - name: Set the JAVA_HOME in /etc/profile file
+      lineinfile:
+        path: /etc/profile.d/java.sh
+        create: yes
+        state: present
+        line: "{{ item }}"
+      with_items:
+        - 'export JAVA_HOME="{{ java_home }}"'
+        - 'export PATH=$PATH:$JAVA_HOME/bin'
+    - name: Reload /etc/profile.d/java.sh file
+      shell:
+        cmd: source /etc/profile.d/java.sh
 
-ansible -i ansible_hosts dev -m shell -a "java --version"
+ansible-playbook -i ansible_hosts java.yml 
+----------------------------------------------------------------------------
+vi maven.yml
+---
+- hosts: dev
+  become: true
+  tasks:
+  - name: Update yum package manager repositories cache    
+    yum:
+      update_cache: yes
+  - name: install Apache Maven get_url: url=https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bin.tar.gz 
+    dest=/tmp/apache-maven-3.9.5-bin.tar.gz 
+  - name: Untar Maven
+    become: true
+    shell: chdir=/tmp creates=/opt/apache-maven-3.9.5 tar -zxf apache-maven-3.9.5-bin.tar.gz -C /opt
+  - name: Set MAVEN_HOME
+    become: true
+    lineinfile:
+      dest: /etc/profile.d/maven.sh
+      create: yes
+      state: present
+      mode: '0744'
+      line: '{{ item }}'
+    with_items:
+      - 'export M2_HOME=/opt/apache-maven-3.9.5'
+      - 'export MAVEN_HOME=/opt/apache-maven-3.9.5'
+      - 'export PATH=${M2_HOME}/bin:${PATH}'
 
-----------------------------------Completed----------------------------------
+ansible-playbook -i ansible_hosts maven.yml 
+-----------------------------------------------------------------------------
+vi docker.yml
+---
+- name: Install docker tool
+  hosts: all
+  become: true
+  tasks:
+    - name: Install docker
+      yum:
+        name: docker
+        state: present
+        update_cache: yes
+    - name: "Starting docker service"
+      service:
+        name: "docker"
+        state: started
+        enabled: yes
 
--------------------------------Ansible-Playbook-Commands---------------------
+ansible-playbook -i ansible_hosts docker.yml -b
+----------------------------------------------------------------------------------------
 
 vi nginx_install.yml
-
 ---
 - hosts: web
   tasks:
@@ -235,8 +307,8 @@ vi nginx_install.yml
           name: nginx
           state: started
 
-ansible-playbook -i inventory.cfg nginx_install.yml -b
------------------------------------------------------------------------------------------
+ansible-playbook -i ansible_hosts nginx_.yml -b
+----------------------------------------------------------------------------------------
 ---
 - hosts: web
   tasks:
@@ -250,8 +322,6 @@ ansible-playbook -i inventory.cfg nginx_install.yml -b
 ansible-playbook -i inventory.cfg uninstall_nginx.yaml -b
 -------------------------------------------------------------------------------------------------------------------
 
-
-
 ansible-playbook playbook.yml --list-hosts
 ansible-playbook playbook.yml --syntax-check
 ansible-playbook playbook.yml --syntax-check --verbose
@@ -264,12 +334,7 @@ https://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html
 
 https://docs.ansible.com/ansible/latest/user_guide/intro_adhoc.html
 
-
-
 ----------------------------------------------------------------------------------------------------------
-
-
-
 sudo usermod -aG docker ec2-user
 database setup:
 ====================================================================
@@ -307,8 +372,6 @@ git clone https://github.com/spring-guides/gs-accessing-data-mysql.git
 
  ls -l ~/.ssh
     2  vi ~/.ssh/authorized_keys
-
-
 ssh
     2  ls -l ~/.ssh
     3  ssh-keygen
@@ -339,9 +402,7 @@ sudo systemctl enable jenkins
 sudo systemctl start jenkins
 sudo systemctl status jenkins
 
-
-
----------------------centos installation------------------------------
+--------------------------------------centos installation------------------------------------------------------------
 yum update -y
 yum install git
 git config --global user.name "Vamshi"
@@ -389,8 +450,7 @@ sudo docker run hello-world
 
               update-alternatives --config java
               update-alternatives --config javac
-
-       
+      
 --------------------------------------maven------------------------------- --------
 cd /opt/
 wget https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bin.tar.gz
@@ -410,8 +470,8 @@ wget https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bi
         mvn --version
         cd
         mvn --version
-----------------------------jenkins setup------------------------------------------
--------------jenkins setup in ubuntu--------------------
+--------------------------------------jenkins setup--------------------------------------------------------------
+---------------------------------------jenkins setup in ubuntu-----------------------------------------------------
 
  sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
     https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
@@ -432,9 +492,8 @@ sudo vi /etc/ssh/sshd_config
 sudo systemctl restart sshd
 sudo systemctl status sshd
 
-
-------------------------------------------------------
-   ----- LOGIN TO SLAVE------
+--------------------------------------------------------------------------------------------------------------------
+ -------------------------- ----- LOGIN TO SLAVE---------------------------------------------------------------------
 sudo yum update
 sudo useradd jenkins
 sudo passwd jenkins
@@ -443,17 +502,15 @@ sudo vi /etc/ssh/sshd_config
 systemctl restart sshd
 systemctl status sshd
 
-  ------GO BACK TO MASTER------
+-------------------  ----------------GO BACK TO MASTER----------------------------------------------------------------------
 sudo su - jenkins
 ssh-keygen
 ssh-copy-id jenkins@publicipv4address
 
-
-----------------jenkins setup in linux-------------
+---------------------------------------------jenkins setup in linux--------------------------------------------------------
 
 wget https://rpmfind.net/linux/fedora/linux/development/rawhide/Everything/x86_64/os/Packages/c/ca-certificates-2023.2.62_v7.0.401-4.fc40.noarch.rpm
 yum localinstall ~/ca-certificates-2023.2.62_v7.0.401-4.fc40.noarch.rpm
-
 
 
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
@@ -469,9 +526,7 @@ sudo vi /etc/ssh/sshd_config
 sudo systemctl restart sshd
 sudo systemctl status sshd
 
-  
 -----------------------------------------------------------------------------------------------
-
 
     tar -xvzf apache-maven-3.9.5-bin.zip
   -rw-r--r--  1 root root 156654496 Oct 10 22:23 jdk-17_linux-x64_bin.deb
@@ -577,11 +632,8 @@ mvn --version
    mvn -version
    export M2_HOME=/opt/maven
    export PATH=${M2_HOME}/bin:${PATH}
-  
 
-
-
-----------------------debian os installation ----------------------------------------------
+------------------------------------debian os installation ----------------------------------------------
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
 2  sudo apt-get update
 3  sudo apt-get install ca-certificates curl gnupg
@@ -596,15 +648,14 @@ for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do
 10  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 11  sudo docker run hello-world
 
---------------------------rockylinux os installation--------------------------
-2  sudo dnf update
-3  sudo dnf install docker
+--------------------------------------------rockylinux os installation--------------------------------------------------
+2 sudo dnf install docker
 4  sudo systemctl start docker
 5  sudo systemctl enable docker
 6  sudo systemctl status docker
 7  sudo docker run -d -p 80:80 nginx
 
------------------docker commands-----------------------------------------
+------------------------------------------docker commands-------------------------------------------------------------
 Common Commands:
   run         Create and run a new container from an image
   exec        Execute a command in a running container
@@ -733,11 +784,6 @@ cat /etc/os-release
   134  ls -l /var/lib/docker/volumes/abc/_data/
   135  docker history
   136  his
-------git key ---------------
-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
-
-
-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
 
  java --version
     2  ls -l /opt/jdk-21.0.1/bin/
@@ -780,8 +826,6 @@ github_pat_11BDY6W6Y0n0TFtlunFXYO_TsJM3Tmp27mpFiOUIt3zk8dz91SOjZXATvE9SIU0Bny242
    39  cat ~/.bashrc
    40  which java
    41  ls -l /opt/jdk-17.0.9/bin/java
-
-
 
  apt-get update
     2  apt-get install ca-certificates curl gnupg
@@ -851,9 +895,7 @@ github_pat_11BDY6W6Y0n0TFtlunFXYO_TsJM3Tmp27mpFiOUIt3zk8dz91SOjZXATvE9SIU0Bny242
    65  ls -l /usr/bin/java
    66  ls -l /etc/alternatives/java
    67  ls -l /usr/lib/jvm/jdk-21-oracle-x64/bin/java
-   68 
-
-   69  java --version
+   6java --version
  
   wget https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb
    13  ls -l /opt
@@ -1130,9 +1172,3 @@ wget https://dlcdn.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bi
    39  cat Dockerfile
    40  docker images
    41  docker ps -a
-
-
-
-
-  
-
