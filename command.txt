@@ -281,6 +281,9 @@ vi docker.yml
 - name: Install docker tool
   hosts: all
   become: true
+  vars:
+    remote_user: ec2-user
+    docker_group: docker
   tasks:
     - name: Install docker
       yum:
@@ -292,6 +295,11 @@ vi docker.yml
         name: "docker"
         state: started
         enabled: yes
+    - name: Add remote "ec2-user" user to "docker" group
+      user:
+        name: "{{ remote_user }}"
+        group: "{{ docker_group }}"
+        append: yes
 
 ansible-playbook -i ansible_hosts docker.yml -b
 ----------------------------------------------------------------------------------------
