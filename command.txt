@@ -226,7 +226,7 @@ vi git.yml
         name: git
         state: present
         update_cache: yes
-
+ansible-playbook -i ansible_hosts git.yml
 -------------------------------------------------------------------------------------------------------------------
 vi java.yml
 ---
