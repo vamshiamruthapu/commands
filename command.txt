@@ -357,7 +357,7 @@ create database db_example;
 CREATE USER 'springuser'@'%' IDENTIFIED BY 'ThePassword';
 GRANT ALL PRIVILEGES ON *.* TO 'springuser'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
-
+use db_example
 create table user(id integer(20), name character(20), email character(30));
 
 application conatiner run:
