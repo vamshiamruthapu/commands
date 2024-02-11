@@ -316,6 +316,15 @@ vi docker.yml
 
 ansible-playbook -i ansible_hosts docker.yml -b
 ----------------------------------------------------------------------------------------
+if [ ${ENV} == 'dev' ];then
+db_host=34.201.76.3
+elif [ ${ENV} == 'stage' ];then
+db_host=18.204.18.53
+else
+db_host=54.85.73.73
+fi
+ansible -i ~/ansible_hosts ${ENV} -m docker_container -a "name=${ENV}-sample-java-app image=vamshiamruthapu/sample-java-app:${version} state=started restart=yes ports=8080:8080 env='MYSQL_HOST=${db_host}'"
+----------------------------------------------------------------------------------------
 
 vi nginx_install.yml
 ---
