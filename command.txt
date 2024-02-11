@@ -215,6 +215,19 @@ ansible app -m copy -a "src=/vagrant/test.txt dest=/tmp/test.txt"
  -----------------------------------------------------------------------------------------------------
                     ansible -i ansible_hosts dev -m shell -a "java --version
  ----------------------------------------------------------------------------------------------------------------
+vi git.yml
+---
+- name: Install Git tool
+  hosts: dev
+  become: true
+  tasks:
+    - name: Install Git
+      yum:
+        name: git
+        state: present
+        update_cache: yes
+
+-------------------------------------------------------------------------------------------------------------------
 vi java.yml
 ---
 - hosts: dev
