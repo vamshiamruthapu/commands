@@ -213,7 +213,7 @@ ansible app -s -m user -a "name=devops group=admin createhome=yes"
 ansible app -m copy -a "src=/vagrant/test.txt dest=/tmp/test.txt"
 
  -----------------------------------------------------------------------------------------------------
-                    ansible -i ansible_hosts dev -m shell -a "java --version
+                    ansible -i ansible_hosts dev -m shell -a "java --version"
  ----------------------------------------------------------------------------------------------------------------
 vi git.yml
 ---
