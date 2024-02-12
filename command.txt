@@ -218,7 +218,7 @@ ansible app -m copy -a "src=/vagrant/test.txt dest=/tmp/test.txt"
 vi git.yml
 ---
 - name: Install Git tool
-  hosts: dev
+  hosts: all
   become: true
   tasks:
     - name: Install Git
@@ -230,7 +230,7 @@ ansible-playbook -i ansible_hosts git.yml
 -------------------------------------------------------------------------------------------------------------------
 vi java.yml
 ---
-- hosts: dev
+- hosts: all
   become: true
   vars:
     jdk_download_url: https://download.java.net/java/GA/jdk18.0.2.1/db379da656dc47308e138f21b33976fa/1/GPL/openjdk-18.0.2.1_linux-x64_bin.tar.gz
@@ -263,7 +263,7 @@ ansible-playbook -i ansible_hosts java.yml
 ----------------------------------------------------------------------------
 vi maven.yml
 ---
-- hosts: dev
+- hosts: all
   become: true
   tasks:
   - name: Update yum package manager repositories cache    
@@ -328,7 +328,7 @@ ansible -i ~/ansible_hosts ${ENV} -m docker_container -a "name=${ENV}-sample-jav
 
 vi nginx_install.yml
 ---
-- hosts: web
+- hosts: all
   tasks:
     - name: install nginx
       apt: name=nginx state=latest
@@ -340,7 +340,7 @@ vi nginx_install.yml
 ansible-playbook -i ansible_hosts nginx_.yml -b
 ----------------------------------------------------------------------------------------
 ---
-- hosts: web
+- hosts: all
   tasks:
     - name: stop nginx
       service:
