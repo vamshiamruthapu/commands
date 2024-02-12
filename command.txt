@@ -215,7 +215,7 @@ ansible app -m copy -a "src=/vagrant/test.txt dest=/tmp/test.txt"
  -----------------------------------------------------------------------------------------------------
                     ansible -i ansible_hosts dev -m shell -a "java --version"
 
-                 ansible -i ansible_hosts all -b -m shell -a "yum install -y git
+                 ansible -i ansible_hosts all -b -m shell -a "yum install -y git"
  ----------------------------------------------------------------------------------------------------------------
 vi git.yml
 ---
