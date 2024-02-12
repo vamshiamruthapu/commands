@@ -1,5 +1,4 @@
-
-    4  sudo vi /etc/ansible/ansible.cfg
+ 
     5  ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa <<< y
     6  vi ansible_hosts
     7  ansible -i ansible_hosts all -m copy -a "src=~/.ssh/id_rsa.pub dest=~"
