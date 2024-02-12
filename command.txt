@@ -369,7 +369,7 @@ sudo usermod -aG docker ec2-user
 database setup:
 ====================================================================
 docker run --name='my_sql_container' -d -p 3306:3306 mysql/mysql-server
-docker log -f --tail 1000 my_sql_container
+docker logs -f --tail 1000 my_sql_container
 
 docker exec -it my_sql_container bash
 mysql -u root -p
