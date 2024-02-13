@@ -215,6 +215,9 @@ ansible app -m copy -a "src=/vagrant/test.txt dest=/tmp/test.txt"
                     ansible -i ansible_hosts dev -m shell -a "java --version"
 
                  ansible -i ansible_hosts all -b -m shell -a "yum install -y git"
+
+                curl --request "DELETE" 'http://3.93.15.93:8080/demo/deleteuser/2'
+
  ----------------------------------------------------------------------------------------------------------------
 vi git.yml
 ---
