@@ -218,6 +218,11 @@ ansible app -m copy -a "src=/vagrant/test.txt dest=/tmp/test.txt"
 
                 curl --request "DELETE" 'http://3.93.15.93:8080/demo/deleteuser/2'
 
+
+docker run -itd -p 8081:8081 -p 8082:8082 sonatype/nexus3
+   docker exec -it 31a763ed4802 cat /nexus-data/admin.password
+
+
  ----------------------------------------------------------------------------------------------------------------
 vi git.yml
 ---
