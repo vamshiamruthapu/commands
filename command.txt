@@ -466,9 +466,9 @@ git push origin main
 hello hai 
 am git 
 git hub [username :- vamshiamruthapu]
-git hub [password :- Vamshi@101]
+git hub [password :- ]
 docker hub [username :- vamshiamruthapu]
-docker hub [password :- Vamshi@1234]
+docker hub [password :- ]
 
 ----------------------------ubuntu installation-----------------------------------
 apt-get update
