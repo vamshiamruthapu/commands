@@ -2841,3 +2841,1040 @@ I will fetch az from AWS using data source and I will get first 2 AZ.
 slice(list, 0, 2) --> 0,1
 roboshop-dev-us-east-1a
 
+-----------------------------------session 31----------------------------------------------------
+user can decide peering required or not
+if required
+	1. they have to give peering VPC ID
+	2. if they are not giving peering VPC ID, we will consider default VPC
+	
+Requestor - roboshop
+Acceptor - user provided VPC or default
+
+roboshop-dev-mongodb
+	1. accept connections only from catalogu and user
+
+create a vpn in default VPC
+connect to vpn in your laptop, then only you can access instances...
+---------------------------------------------session 32------------------------------------------------
+sg module create and create all security groups
+roboshop-dev-mongodb
+
+mongodb:
+- catalogue
+- user
+
+source: catalogue IP address
+source sg id: sg-018af35c4f2bb2497 --> catalogue
+port: 27017
+
+mongodb sg, catalogue sg
+
+roboshop-dev-mongodb
+
+sbnr-1234, sbnt-3456 --> for AWS it is list, but for us it is string
+
+[]
+
+1. create one ec2 in public subnet, login to that ec2 first and from there connect to mongodb
+2. vpn installation, connect to private servers through vpn
+----------------------------------------session33---------------------------------
+private
+--------
+1. first connect to public instance
+2. from public you can connect private
+
+vpn
+----
+inbound
+mongodb --> vpn security group
+
+mongodb
+--------
+1. vpn
+2. catalogue
+3. user
+----------------------------session 34-----------------------------------------
+1. how to develop module
+2. how to use module
+3. SSM paramter store to store the configuration.
+	one project exports configuration
+	another project can refer configuration
+4. SG --> 
+
+VPC and peering
+All SG
+VPN
+EC2 and records
+
+create one ansible server, this server will provision playbooks to all the EC2
+
+Load Balancer
+Target groups
+rules
+
+launch template
+auto scaling
+auto scaling policy
+
+
+one manager, team leaders, team members
+
+clitens will send requirements to manager
+1. UI requirements
+2. backend requirements
+3. database requirements
+
+UI team leader, backend leader, database leader
+
+team leader --> team members
+
+manager --> load balancer
+
+running 2 nginx servers
+
+instances will get requests from load balancer
+ingress rule should have a security which is attached to load balancer.
+
+client --> manager
+target groups --> teams
+ui, backend, database
+health check
+1. instance up
+2. is instance busy serving other requests
+
+ip:80 -> 200 success
+
+http://nginx-balancer-1490265862.us-east-1.elb.amazonaws.com:80/ui/
+-----------------------------------session 35-----------------------------
+vpc
+
+push
+----------
+ansible --> nodes
+
+manual login, they disturb configuration
+
+ansible-pull --> every 30min download the configuration from git directly and run it, anyhow we implemented idempotency so no problem
+
+every platform will have its own solution to maintain configuration and secrets
+
+SSM paramter store --> services will refer this..
+
+server provisioning is through ansible, so it is ansible responsibility to get the configuration from paramter store
+
+ansible --> AWS paramter store
+
+ansible use boto3 and botocore python modules to connect
+
+
+app and web tier
+--------------------
+1. if traffic increases, autoscaling will create instance
+	1. when new instance created, use user_data or provisioner with ansible to configure the server --> 5min
+	2. when you are deploying, website is running
+		a. first we create one new instance
+		b. provision the instance using ansible
+		c. stop the instance
+		d. take AMI --> 10min
+		e. update autoscaling using new AMI
+			slowly old instances will be replaced by new instances
+			in future if traffic increases, autoscaling uses AMI to add the instances
+--------------------------------------------------session 36-----------------------------------------
+client --> Business analyst --> team manager --> team leads --> team members
+
+team manager --> only listen to business analyst
+team manager
+	ui team lead --> if ui work, he will redirect to UI team lead
+	backend team lead --> if backend  work, he will redirect to backend team lead
+UI team --> group
+--------
+3 members
+
+HR --> HR should continously check if the resources
+overload --> have to take another resource
+less work --> have to terminate
+if they resign --> they have to replace
+
+Team Manager --> APP ALB
+Team Manager Listens --> listens to only business analyst, port no 80. no encryption required.
+Rules
+	if UI --> UI team
+	if Backend --> Backend team
+	
+HR --> autoscaling
+Team/Groups --> target groups
+employees --> instances
+hiring template --> launch template
+
+context path
+daws76s.online/roboshop
+daws76s.online/amazon
+
+host path
+roboshop.daws76s.online 
+amazon.daws76s.online
+
+*.app-dev.daws76s.online
+
+team create --> 
+
+create catalogue target group
+
+HR --> Autoscaling
+
+create one instance
+provision with ansible/shell
+stop the instance
+take AMI
+delete the instance
+now create launch template with AMI
+
+
+roboshop-dev-catalogue-YYYY-MM-DD-hh-mm
+
+catalogue.app-dev.daws76s.online --> redirect to catalogue target group
+-------------------------------------------session 37----------------------------------------
+catalogue deploy
+
+new version of catalogue should be released, new launch template version also should be released....
+
+autoscaling is refreshed using new launch template
+
+autoscaling provision ec2 instances into a target group directly
+
+RollingUpdate
+--------------
+4 instances are there now, 4 new instances should be created and replace old
+
+1 new instance --> once it is up, 1 old instance will be terminated
+2 new instance --> once it is up 2nd old instance will be terminated
+
+target group
+instance launch
+provision
+stop
+ami
+delete instance
+launch template
+autoscaling --> target group
+
+LB --> listener and rules
+
+*.app-dev.daws76s.online --> APP ALB
+catalogue.app-dev.daws76s.online --> catalogue target group
+
+
+http://catalogue.app-dev.daws76s.online/categories
+
+*.app-dev.daws76s.online --> internal-roboshop-dev-app-alb-1986419658.us-east-1.elb.amazonaws.com.
+
+instance-1 --> handling some requests
+
+instance-1 got termination request, dereigstration will start
+
+complete pending requests and loadbalancer should not give any new requests
+
+WEB
+--------------
+1. web alb, create security group first. listener 443. rule
+web-dev.daws76s.online
+
+before creating listener you need to create certificate. https
+
+*.daws76s.online --> create https certificate
+
+2. 443 give access from internet
+
+
+godaddy
+---------
+login to godaddy account, create records there...
+
+How HTTPS works?
+
+ACM
+CDN
+-------------------------------------------session 38-------------------------------------------------
+app_alb_web
+
+source: web_sg_id
+ingress rule: 80
+
+web-dev
+
+https://web-dev.daws76s.online
+
+1. web ALB roboshop-dev-web-alb-1134442274.us-east-1.elb.amazonaws.com.
+2. 443 listener will invoke
+3. rules will evaluate and traffic will be redirected to web tg
+4. traffic reaches web and give us the website
+
+https://web-dev.daws76s.online/api/catalogue/categories
+
+1. web ALB roboshop-dev-web-alb-1134442274.us-east-1.elb.amazonaws.com.
+2. 443 listener will invoke
+3. rules will evaluate and traffic will be redirected to web tg
+4. traffic reaches web and give us the website
+5. api/catalogue/* --> catalogue.app-dev.daws76s.online
+
+http://catalogue.app-dev.daws76s.online
+1. APP ALB
+2. 80 listener will invoke
+3. rules will evaluate and traffic will be redirected to catalogue tg
+4. it will connect to and fetch products
+
+Cloudfront
+---------------------------
+ISP also cache servers, they download movies in cache servers
+
+cdn --> get it from web alb(origin)
+---------------------------------------------sesson 40-----------------------------------------------
+Cloudfront
+-------------
+useful to cache static content
+dynamic content should not be cachced
+
+https://web-dev.daws76s.online/media/graph.png
+https://web-dev.daws76s.online/media/instana_icon_square.png
+https://web-dev.daws76s.online/images/STAN-1.jpg
+https://web-dev.daws76s.online/media/instana_icon_square.png
+
+/images/* --> then apply cache policy
+/media/* --> then apply cache policy
+default --> get the content from web-dev.daws76s.online
+
+deployment
+------------
+changed some content
+
+remove cache from all edge locations
+cloudfront will get latest again and cache it
+
+https://web-cdn.daws76s.online
+
+1. get the cdn url from route53
+2. behaviours will be evaluated
+
+https://web-cdn.daws76s.online/api/catalogue/categories --> web-alb
+
+web-dev.daws76s.online/api/catalogue/categories
+
+listeners and rules in web alb
+
+443, web-dev --> web
+/api/catalogue/* --> catalogue.app-dev.daws76s.online --> APP ALB
+
+80 catalogue. --> catalogue component
+
+/categories --> connect to mongodb and fetch the categories
+
+
+SG
+----
+VPC based service, where resource is created inside VPC
+non VPC service, resources are created outside VPC
+
+1. CDN --> WEB ALB
+web alb should accept traffic on 443 from internet.
+2. Web ALB --> WEB
+WEB should accept traffic on 80 from web-alb
+3. web-alb --> app-alb
+app-alb should accept traffic on 80 from web and vpn
+4. app-alb --> catalogue
+catalogue should accept traffic on 8080 from app-alb
+5. app-alb --> cart
+cart should accept traffic on 8080 from app-alb
+cart --> catalogue through app-alb
+app-alb should accept traffic on 80 from cart
+all components are accepting traffic on port no 80 from app-alb
+6. mongodb should accept traffic on 27017 from catalogue
+
+
+vpc, sg, vpn, databases, web-alb, app-alb --> 
+
+project infra --> we need project infra to create applications
+through SSM parameter store
+
+catalogue
+--------------
+CICD
+
+CI
+----
+clone
+build
+scan the code
+	static scanning --> sonarqube
+	sast --> fortify, coding is based on security standards
+	dast --> web inspect, app will be tested with all vulnerabilities
+	open source scan --> nexus IQ, blackduck scan thrird party libraries
+	image scanning --> ECR scanning,  scanning docker images
+create artifact, generally zip file
+store the zip file --> nexus, jfrog, s3
+unit testing --> junit
+
+CD
+----
+application infra --> developers or devops engineers
+-----------------
+create instance
+deploy the latest version
+stop the instance
+take ami
+refresh autoscaling
+do the functional testing --> selenium
+
+shift-left
+------------
+
+
+GIT
+--------------
+main/master --> depicts/points the code running currently in production
+
+create a copy of file --> do the changes --> test those changes --> then do it main file
+
+create another branch from main/master
+--------------------------------------
+do the changes here
+run CICD --> deploy in DEV
+test the application
+merge into master --> deploy in PROD
+
+we write functions --> functionality
+input and output
+
+code coverage --> how much unit testing covered
+-----------------------------------------------41----------------------------------------------
+master --> feature
+PR from feature --> master
+comments
+merge/rebase --> extra commit
+merge commit triggers DEV deployment
+
+
+main
+feature branches are from main branch
+we did PR
+
+git content tracker
+
+SHA code --> 40 char universal unique ID for the content
+
+git is a key/value pair
+
+commit ID --> content is the value
+
+if you change the content commit ID will change
+
+echo "" | git hash-object --stdin
+
+git cat-file commit-id -p --> you will get total information
+
+merge strategies
+-----------------
+
+1. merge
+-------------
+when you are merging one branch to another branch
+feature-1 --> main
+it will create a merge commit always that have 2 parents.
+merge will preserve the complete history, it is like chain structure
+
+2. rebase
+-------------
+1. no extra commit
+2. commit ids will change, rewrites the history
+3. it will not preserve the history.
+
+a. is this looking like a rebase is created and merged
+b. is this looking a linear development happened in main branch
+
+squash --> mixing them
+
+microservices
+------------
+2 weeks
+1 feature is developed by 1 developer
+
+a developer can do 60 commits...
+
+abcd433 --> project-1 have user module
+60 commits --> squash into single commit
+djf788 --> He completed catalogue module
+dfg67364 --> cart module
+
+1. if a branch is developed by multiple developers then
+	prefer merge
+	
+branching strategy
+---------------------
+main
+feature --> apart from main anything called as feature branch
+
+main is long lived branch, feature is short lived branch
+
+developers create feature branches, once they complete development they will raise PR and merge/rebase into main branch
+
+
+feature branch, before raising PR... let's do CICD in DEV environment. if success in DEV then you can raise PR
+
+then rebase into main...
+
+code is same across all environments, but configuration is different
+configuration should be detached from code, we are using SSM parameter store
+
+we got into main branch --> QA, SIT, UAT, PRE-PROD, PERF, PROD
+
+feature --> DEV, QA --> success
+main --> merge --> new commit ID got created
+when commit id is changed --> code is changed --> so doing once again in QA
+
+fast-forward merge --> build once in DEV and run anywhere
+-------------------
+feature --> DEV, QA --> success
+main --> but same commit ID whatever tested in feature branch
+-------------------------------------------42----------------------------------------
+merge conflicts
+
+what is conflict?
+
+if git finds diff code in the same line number
+
+main
+------
+main --> conflict --> developer-1 created it
+
+developer-2
+-----------------
+main --> developer-2
+then he should understand main branch moved forward
+
+he need to pull those changes in local, resolve conflicts with other developer-1
+
+pull before push 
+
+Jenkins --> CICD
+---------------
+continous integration tool
+
+
+1 person --> 1 acre of agriculture
+
+100 acres --> you need lot of resources
+
+owner --> employ resources --> distribute the work
+
+master --> slave
+master --> agent
+1. master asking agent to work
+2. employee coming to master and asking for work
+
+webhook
+-----------
+if developer pushes the code to git, then we want the pipeline to run automatically
+
+git --> Jenkins
+----------------------------------------------43----------------------------------------
+agent
+-------
+terraform command
+should have aws creds also
+
+CICD
+-------
+Project infra should be ready
+
+catalogue app should be in git
+Jenkinsfile
+
+CI
+-----
+clone the code
+unit testing
+scans
+	sonar scan
+	SAST
+	DAST
+	Open source scanning
+	docker image scanning
+dependencies install
+build --> zip file
+we need to push to Nexus
+
+CD
+----
+deploy to dev
+functional test cases
+publish the results
+
+git --> repository --> code --> dont store artifacts
+nexus --> repository --> artifacts --> dont store code here
+
+maven 2 format
+--------------
+1000
+	firstname
+	firstname+lastname --> same
+	firstname+lastname+dob --> may be possible
+	
+project, modules, versions
+
+project --> roboshop
+modules --> catalogue
+version --> 1.0.0, 1.0.1, 2.0.0
+
+group id --> com.roboshop
+artifact id --> catalogue
+version --> 10.0.0
+
+http://100.26.147.241:8081/repository/catalogue/
+-----------------------------------44----------------------------------------
+1.0.0 --> semantic version
+
+http://3.237.181.150:8081/repository/catalogue/
+http://172.31.5.95/repository/catalogue/com/roboshop/catalogue/1.0.0/catalogue-1.0.0.zip
+
+jenkins --> nexus
+
+nexus artifact uploader
+
+nexus URL, authentication
+
+create a server
+provision it using ansible
+stop server
+take AMI
+create launch template version
+refresh autoscaling
+
+download artifact from nexus
+download specific version
+
+ansible
+--------
+nexus location
+artifact version
+
+from terraform you should send artifact version to ansible
+
+jenkins have application version, it should send that version to terraform
+---------------------------------------------45----------------------------------------------
+Types of scanning
+
+Static source code analysis
+	sonarqube
+Static application security testing
+	fortify
+dynamic application security testing
+	web inspect
+open source library scanning
+	nexus iq
+docker image scanning
+	twistlock, ECR scanning
+	
+dependencies installatio
+build
+all type of scanning
+unit testing
+nexus upload
+
+quality gate
+-------------
+0 bugs
+0 code snells
+security rating A
+code coverage 80
+commit-A
+commit-B
+
+commit-B - commit-A = new code
+
+git --> multiple branches...multi branch pipeline
+
+Language, Deployment platform
+NodeJs, AWS VM/Docker/Kubernetes/PCF/On-prem VM
+
+HDFC --> 200 projects and many microservices
+
+nodejsvm pipeline --> don't duplicate the pipeline code
+
+reuse, implement best standards and force others to use
+nodejsvm pipeline --> implement best standards, reuse, centralised
+
+jenkins shared library --> treat your pipeline as library, use it wherever you want
+
+process
+-----------
+1. create a feature branch in catalogue
+2. configure multi branch pipeline
+3. configure jenkins shared library
+
+1. I created a repo and added pipelines there
+2. I added in jenkins system configuration, location and name of the library
+
+nodejsvm/javavm/pythonvm/govm is a centralised pipeline, we need to send parameters
+-----------------------------------------------------46----------------------------------------------
+JIRA/Service now
+---------------------------
+project code, app code, version
+test results attachement
+scanning results attachement
+DEV, SIT, UAT --> success
+jenkins build URLS also here
+
+JIRA ID
+CR number
+
+Change management process
+---------------------------
+we will raise a CR --> every organisation will have their own tool to manage CR.
+
+project code, application code, version, JIRA ID, approvals, date and time, deployment process, revert back process, post deployment testing.
+
+NEW --> CR ID
+Approve --> write some comments
+Delivery manager --> write some comments and approve
+Cleint --> approve
+
+JIRA --> Jenkins integration
+
+trigger PROD --> JIRA will check CR is approved or not, prod trigger time is same as time in CR.
+
+Jenkins pipeline
+
+DEV and PROD infra
+
+DEV will do a change in source code, a pipeline will automatically trigger to deploy the application into DEV..
+
+then we will deploy into PROD
+
+functional testing
+------------------
+microservices
+1 microservice is handled by 1 person --> Developers are writing functional test cases
+
+Once DEV deployment is over, either developer/tester have to provide the scripts and command to perform functional testing,
+-------------------------------------------------47------------------------------------------------
+1. make sure dev and prod infra is ready. get the vpn connected
+2. catalogue
+	create catalogue repo
+	create jenkinsfile
+	point this jenkinsfile to shared libraries. make sure you have shared libraries configured in jenkins system configuration
+	shared library VM pipeline will be called
+		clone
+		get the version from package.json
+		install dependencies
+		unit tests
+		build
+		scans
+			sonar
+			sast
+			open source libraries scans
+			dast
+		if developer opts for deploy we can deploy
+	catalogue-deploy, it is calling terraform-roboshop-app
+	bootstrap script, we are passing environment, version and component
+	bootstrap script will clone roboshop-ansible-roles-tf and run catalogue role
+	
+As a DevOps team, we have Nodejs CICD ready... a new project user module is started. How can you setup CICD for it?
+
+1. if a new project is started, they should have a repo exist in nexus..
+2. 
+
+---------------------------------------------------------48---------------------------------------------------
+Linux
+Manual project installation
+Shell script
+Ansible script
+Terraform
+Terraform infra + Jenkins CICD
+
+Containerization
+
+Physical Servers, Virtualisation, Containerization
+
+Independent houses, apartments, individual rooms
+
+Independent houses/Physical Servers
+-------------------
+advantages:
+* own space, privacy
+
+dis advantages:
+* electricity
+* water
+* internet
+* 6months - 1year time
+* only one family can stay
+* cost is very high
+
+Physical Servers --> booting time is very high
+16GB RAM, 1TB HD
+
+apartments/Virtualisation
+-------------------
+dis advantages:
+* shared area(corridor, park, lift, badminton court, pool, etc.)
+
+advantages:
+* water, electricity, internet everything will be taken care
+* construction time is relatively very less
+* cost is medium
+
+booting time is very less compared to physical server
+
+a big physical server will be there --> 16GB RAM, 1TB HD, CPU
+we will divide this big server into multiple logical servers
+Host OS --> windows
+VM Ware --> Hypervisor
+
+Guest OS-1
+--------
+1GB RAM
+Ubuntu
+100GB HD
+
+Guest OS-2
+--------
+1GB RAM
+Centos
+100GB HD
+isolated from other servers
+
+Guest OS-3
+--------
+1GB RAM
+Fedora
+100GB HD
+0.1GB RAM, 10GB HD
+
+
+resource utilisation is good in VM
+
+single rooms
+------------------
+1 flat --> 3BHK
+everyone will take one room, hall and kitchen are shared
+
+advantages:
+* very fast
+* very less cost
+
+we will have containers installed in VM...
+
+containers are isolated from each other, system resources are shared...
+containers take resources based on demand, it don't block resources
+boot time is very less --> with in seconds your application is available
+
+configuration == all your things
+
+container/image = Fat OS(4GB/3GB) + application run time + created users + created a directory + installed application
+
+AMI = server + configured the server using ansible + stop server + take AMI
+Amazon machine image
+
+docker image = Base OS(5MB-250MB) + application run time + created users + created a directory + installed application = max 500MB = immutable image = can take from DEV to PROD
+
+Docker is portable
+
+legacy = frontend+backend ==> war file and ear file = 100MB
+
+frontend and backend divided
+
+VM for monolithic apps
+
+frontend = UI = VM-1 = 50 MB
+backend = cart+catalogue+user = VM-2 = 50MB
+
+Microservices --> completely independent applications
+10/5MB you dont need VM to run a microservice. containers are a best approach
+
+working in DEV, but not working in PROD
+----------------------------------------
+configuration changes and OS
+
+docker users can only use docker, when you install docker a group called "docker" is created
+
+usermod -aG docker centos
+image vs container
+AMI vs EC2 instance
+
+docker images --> show you the images exist in server
+docker pull nginx --> pulls the image from hub
+docker pull nginx --> pulls the image from hub
+nginx AMI = any OS + install nginx = nginx AMI
+nginx image = base os + nginx installed
+docker create <image ID>/<image-name>:version --> container will be created
+
+docker ps --> running containers
+docker ps -a --> all containers with all status
+
+docker start container id --> start the container
+
+docker rm container id
+remove images --> docker rmi <image-name>/id
+docker rmi `docker images -a -q` --> removes all images
+
+pull+create+start = docker run
+
+docker run -d --> to run container in background
+docker exec -it conatainer id bash
+
+0-65,535 ports
+0-65,535 a container will have
+
+Dockerfiles
+------------
+a declarative way of creating our own image...
+--------------------------------------------------50----------------------------------
+docker build -t url/username/image:version .
+
+docker build image:version .
+
+docker tag image:version url/username/image:version
+
+docker login
+
+docker push image:version url/username/image:version
+
+RUN vs CMD
+---------------
+systemctl start catalogue
+
+it will create one nodejs process and this process will run for infinte time...
+
+CMD instruction is to make your container running..
+
+RUN --> runs at the time of image building
+CMD --> runs at the time container creation
+
+every container is a process.
+
+systemctl commands will not work in containers...
+
+command should be foreground and attach to the screen, then you send it into background
+
+100 shopping covers all are white, you know only when you open them
+
+you can give some lables to them to identify easily
+
+COPY vs ADD
+--------------
+both are used to copy the files from local to image... but ADD have 2 extra capabilities
+
+1. It can directly download files from internet
+2. It can directly untar the tar files..
+
+CMD vs ENTRYPOINT
+-----------------
+1. CMD command can be overridden by another command at run time.
+ping google.com ping yahoo.com
+2. ENTRYPOINT command can't be overridden, if you try to do so, the command you are entering at run time will go and append to ENTRYPOINT
+
+We can use CMD and ENTRYPOINT for best results
+
+1. You can use CMD instruction to supply default arguements to ENTRYPOINT
+2. user can always override CMD arguements from run time
+
+ARG vs ENV
+-----------------
+ARG instruction can provide values to the Dockerfile only at buildtime. ENV variables have access in the container
+
+How can I use ARG variables inside container?
+Assign the values of ARG to ENV variables so that you can access them inside container as well
+
+ARG instruction can be used before FROM instruction to provide values to FROM instruction.
+
+ARG value deffnied before FROM will not be accessed after FROM
+
+ONBUILD
+-----------------
+author of image: I want to force users of image to follow something
+-----------------------------------------52--------------------------------------
+
+docker commands
+dockerfile instructions
+docker compose
+
+docker network create roboshop
+
+once the images are ready, we can run docker compose
+
+we took one OS
+	application run time, nodejs
+	user create
+	create folder
+	download application
+	systemctl
+AMI
+
+best practices
+--------------
+1. use official images
+2. reduce image size by using bare minimum OS like alpine, disto, core os, etc.
+3. use multi stage builds
+4. use docker volumes to persist the data
+5. use custom network to isolate containers from other projects
+
+Source code --> compile --> byte code(jar) --> run byte code
+
+JDK --> Java development kit
+JRE --> Java runtime environment
+
+JDK > JRE and JRE is subset of JDK
+
+JDK memory > JRE memory
+
+
+Docker Volumes
+---------------
+when you remove docker container, what happens to data?
+
+containers ephemeral/temporary. data by default will be deleted..
+
+unnamed volumes
+named volumes
+
+-p host-port:container-port
+
+/opt/server --> node js file
+
+roboshop:roboshop
+
+addgroup 
+
+docker architecture
+
+docker run nginx
+	1. docker shell/ docker command send a request to docker deamon
+	2. docker engine receives the request
+	3. it will check whether image is available in local or not
+	4. if available it will create container and show the response in client
+	5. if not available, it will pul from docker central hub, keep it in local.
+	6. create container and response to client
+
+docker layers
+--------------------
+1. base image
+
+creates container out of first instruction, intermediate container
+
+2. runs second instruction in the container, creates image out of this
+
+3. creates container out of 2 instructions.
+
+4. runs the command in the intermediate container. creates image out of these 3
+
+FROM node:18.19.1-alpine3.19 --> creates container-1 here
+runs EXPOSE 8080 in container-1 --> creates image-1 out of this container-1
+create container-2 out of image-1
+runs this command addgroup -S roboshop && adduser -S roboshop -G roboshop in container-2 --> creates image-2 out of this conatiner-2
+creates container-3 out of this image-2
+RUNS 
+
+image --> container --> image --> container
+
+RUN yum install nginx -y
+RUN yum install git -y
+RUN yum install gcc -y
