@@ -401,16 +401,105 @@ docker run -itd -e MYSQL_HOST=100.24.2.36 -p 8080:8080 vamshiamruthapu/sample-ja
 
 curl http://100.24.2.36:8080/demo/add -d name=vamshi -d email=vamshi@gmail.com
 
-
-
-
+------------------------------------------------------------------------------------------------
 docker run -d -p 8080:8080 -v /mnt/d/vamshi-practice/jenkins_home:/var/jenkins_home jenkins/jenkins
 docker exec -it -u root <container-id> bash
 apt-get update
 apt-get install git
 apt-get install maven
+--------------------------------------------------------------------------------------------------------
+
+-------------------------yesterday--------------------------------
+
+docker run -itd -p 8081:8081 -p 8082:8082 sonatype/nexus3
+docker exec -it 31a763ed4802 cat /nexus-data/admin.password
+docker ps -a
+docker logs -f --tail 1000 f908fbf1d12d
+docker exec -it f908fbf1d12d bash
+cat /nexus-data/admin.password
+docker login -u admin -p AV@2558828 54.204.107.9:8082
+sudo vi /etc/docker/daemon.json
+sudo systemctl restart docker
+sudo systemctl restart docker
+sudo vi /etc/docker/daemon.json
+{"insecure-registries":["54.204.107.9:8082"]}
+sudo systemctl restart docker
+sudo systemctl status docker
+docker ps -a
+docker start f908fbf1d12d
+docker ps -a
+docker logs -f --tail 1000 f908fbf1d12d
+
+docker login -u admin -p AV@2558828 54.204.107.9:8082
+sudo vi /etc/docker/daemon.json
+docker login -u admin -p AV@2558828 54.204.107.9:8082
+ls -l
+home lo <scp -i jenkins.pem my-ansible-role.zip ec2-user@54.89.216.61:>
+ unzip my-ansible-role.zip
+ls -l
+cd my-ansible-role/
+ls -l
+ansible-playbook -i hosts all-roles.yaml
+cat all-roles.yaml
+ls -l roles/
+mv roles/maven/tasks/mail.yaml roles/maven/tasks/main.yaml
+ansible-playbook -i hosts all-roles.yaml
+ssh -i ~/jenkins.pem 3.89.111.147
+scp -i jenkins.pem my-ansible-role.zip ec2-user@54.89.216.61:
+rm -rf my-ansible-role
+unzip my-ansible-role.zip
+cd my-ansible-role/
+ls -l
+rm -rf vars-docker/
+rm -rf vars-java/
+ansible-playbook -i hosts all-roles.yaml
+ls -l
+cat hosts
+mv group_vars/all-vars group_vars/software
+ansible-playbook -i hosts all-roles.yaml
+cd ..
+cat /etc/profile.d/java.sh
+vi /etc/profile.d/java.sh
+sudo vi /etc/profile.d/java.sh
+source /etc/profile.d/java.sh
+java --version
+ exit
+vi roles/java/tasks/main.yaml
+vi group_vars/software
+ansible-playbook -i hosts all-roles.yaml
+ssh -i ~/jenkins.pem 3.89.111.147
+java --version
+which ansible
+ls -l /usr/bin/ansible
+ls -l ~/.ansible/plugins/
+sudo ls -l /root/.ansible/plugins/
+ls -l /usr/share/ansible/plugins/
+ls -l /usr/share/ansible/plugins/module
+
+<module list>
+ls -l /usr/lib/python3.9/site-packages/ansible/modules/
+
+ansible-galaxy role install geerlingguy.elasticsearch
+ls -l
+ls -l /home/ec2-user/.ansible/roles
+mv /home/ec2-user/.ansible/roles .
+ls -l
+cd roles/geerlingguy.elasticsearch/
+ls -l
+ls -lRh
 
 
+<------------------------------------------------------------->
+ ansible-galaxy role search java
+ansible-galaxy role install freeradical604.ansible-java21
+
+ ansible-galaxy role search tomcat
+ansible-galaxy role search kubernetes
+ansible-galaxy role search ec2
+ansible-galaxy role install raj_singh_coder.ec2_lauch_by_ansible
+
+
+------------------------------------------------------------------------------------------------------------
 git clone https://github.com/spring-guides/gs-accessing-data-mysql.git
 
  ls -l ~/.ssh
