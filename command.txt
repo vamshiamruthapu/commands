@@ -212,15 +212,15 @@ ansible app -s -m user -a "name=devops group=admin createhome=yes"
 ansible app -m copy -a "src=/vagrant/test.txt dest=/tmp/test.txt"
 
  -----------------------------------------------------------------------------------------------------
-                    ansible -i ansible_hosts dev -m shell -a "java --version"
+                ansible -i ansible_hosts dev -m shell -a "java --version"
 
-                 ansible -i ansible_hosts all -b -m shell -a "yum install -y git"
+                ansible -i ansible_hosts all -b -m shell -a "yum install -y git"
 
                 curl --request "DELETE" 'http://3.93.15.93:8080/demo/deleteuser/2'
 
 
-docker run -itd -p 8081:8081 -p 8082:8082 sonatype/nexus3
-   docker exec -it 31a763ed4802 cat /nexus-data/admin.password
+                docker run -itd -p 8081:8081 -p 8082:8082 sonatype/nexus3
+                docker exec -it 31a763ed4802 cat /nexus-data/admin.password
 
 
  ----------------------------------------------------------------------------------------------------------------
@@ -410,9 +410,15 @@ apt-get install maven
 --------------------------------------------------------------------------------------------------------
 
 -------------------------yesterday--------------------------------
-
 docker run -itd -p 8081:8081 -p 8082:8082 sonatype/nexus3
 docker exec -it 31a763ed4802 cat /nexus-data/admin.password
+
+sudo vi /etc/docker/daemon.json
+{ "insecure-registries": ["54.204.107.9:8082"] }
+sudo systemctl restart docker
+docker login -u admin -p ******** 54.204.107.9:8082
+
+
 docker ps -a
 docker logs -f --tail 1000 f908fbf1d12d
 docker exec -it f908fbf1d12d bash
