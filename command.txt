@@ -498,6 +498,11 @@ ansible-galaxy role search kubernetes
 ansible-galaxy role search ec2
 ansible-galaxy role install raj_singh_coder.ec2_lauch_by_ansible
 
+sudo vi /etc/docker/daemon.json
+{ "insecure-registries": ["54.204.107.9:8082"] }
+sudo systemctl restart docker
+docker login -u admin -p ******** 54.204.107.9:8082
+
 
 ------------------------------------------------------------------------------------------------------------
 git clone https://github.com/spring-guides/gs-accessing-data-mysql.git
