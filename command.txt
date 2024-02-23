@@ -403,6 +403,7 @@ curl http://100.24.2.36:8080/demo/add -d name=vamshi -d email=vamshi@gmail.com
 
 ------------------------------------------------------------------------------------------------
 docker run -d -p 8080:8080 -v /mnt/d/vamshi-practice/jenkins_home:/var/jenkins_home jenkins/jenkins
+docker run -d -p 8080:8080 -v D:\\vamshi-practice\\jenkins_home:/var/jenkins_home jenkins/jenkins
 docker exec -it -u root <container-id> bash
 apt-get update
 apt-get install git
