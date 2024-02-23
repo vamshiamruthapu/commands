@@ -508,7 +508,44 @@ sudo vi /etc/docker/daemon.json
 { "insecure-registries": ["54.204.107.9:8082"] }
 sudo systemctl restart docker
 docker login -u admin -p ******** 54.204.107.9:8082
+------------------------------------------------------------------------------------------------------------
+ls -l ~/.ssh
+    2  vi ~/.ssh/authorized_keys
 
+ssh
+    2  ls -l ~/.ssh
+    3  ssh-keygen
+    4  ls -l ~/.ssh
+    5  cat ~/.ssh/id_rsa.pub
+    6  ssh ec2-user@3.83.90.156
+    7  ls -l ~/.ssh
+    8  cat ~/.ssh/id_rsa.pub
+    9  ssh ec2-user@3.93.248.156
+   10  ssh ec2-usr@3.93.248.156
+   11  ls -l ~/.ssh
+   12  cat ~/.ssh/id_rsa.pub
+   13  ssh ec2-user@3.93.248.156
+   14  ls -l ~/.ssh
+   15  cat ~/.ssh/id_rsa.pub
+   16  ssh ec2-user@3.93.248.156
+   17  ls -l ~/.ssh
+   18  cat ~/.ssh/id_rsa
+
+sudo yum upgrade
+sudo yum install java-17-amazon-corretto -y
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+sudo yum install jenkins -y
+
+sudo systemctl enable jenkins
+
+sudo systemctl start jenkins
+
+sudo systemctl status jenkins
 
 ------------------------------------------------------------------------------------------------------------
 git clone https://github.com/spring-guides/gs-accessing-data-mysql.git
